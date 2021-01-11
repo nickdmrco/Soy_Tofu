@@ -1,7 +1,7 @@
 {
   "name": "01-mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project-3",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -23,5 +23,13 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.11.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickdmrco/project-3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nickdmrco/project-3/issues"
+  },
+  "homepage": "https://github.com/nickdmrco/project-3#readme"
 }
