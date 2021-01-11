@@ -1,6 +1,12 @@
+import Checkout from './components/Checkout'
+import Footer from './components/Footer'
+
 const App = () => {
   return (
-    <h1>Hello World!</h1>
+    <>
+      <Checkout></Checkout>
+      <Footer></Footer>
+    </>
   )
 }
 
