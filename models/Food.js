@@ -6,5 +6,6 @@ module.exports = model('Food', new Schema({
   price: Number;
   catagory: String;
   description: String;
+  options: Array;
 }))
 
