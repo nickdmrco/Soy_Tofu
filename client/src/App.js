@@ -1,11 +1,9 @@
-import Checkout from './components/Checkout'
-import Footer from './components/Footer'
+import Checkout from './Checkout'
 
 const App = () => {
   return (
     <>
       <Checkout></Checkout>
-      <Footer></Footer>
     </>
   )
 }
