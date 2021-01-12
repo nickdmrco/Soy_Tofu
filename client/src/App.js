@@ -18,13 +18,6 @@ const App = () => {
         </Switch>
       </div>
     </Router>
-import Checkout from './Checkout'
-
-const App = () => {
-  return (
-    <>
-      <Checkout></Checkout>
-    </>
   )
 }
 
