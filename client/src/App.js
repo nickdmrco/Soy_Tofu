@@ -1,9 +1,9 @@
-import Checkout from './Checkout'
+import About from './About'
 
 const App = () => {
   return (
     <>
-      <Checkout></Checkout>
+      <About></About>
     </>
   )
 }
