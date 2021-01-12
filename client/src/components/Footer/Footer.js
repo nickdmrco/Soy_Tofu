@@ -20,11 +20,11 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   //  sticky footer
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '40vh',
-  },
+  // root: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   minHeight: '50vh',
+  // },
   footer: {
     padding: theme.spacing(3, 2),
     marginTop: 'auto',
@@ -77,7 +77,7 @@ export default function Footer() {
           </Grid>
           <Copyright className={classes.copyright} />
         </Container>
-      
+
       </footer>
     </div>
   )
