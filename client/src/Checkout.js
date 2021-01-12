@@ -1,17 +1,15 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
 import Paper from '@material-ui/core/Paper'
 import Stepper from '@material-ui/core/Stepper'
 import Step from '@material-ui/core/Step'
 import StepLabel from '@material-ui/core/StepLabel'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import ContactInfo from './ContactInfo'
-import PaymentForm from './PaymentForm'
-import ReviewForm from './ReviewForm'
+import ContactInfo from './components/ContactInfo'
+import PaymentForm from './components/PaymentForm'
+import ReviewForm from './components/ReviewForm'
+import Footer from './components/Footer'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -79,14 +77,6 @@ const Checkout = () => {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Soy Tofu
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
@@ -133,6 +123,7 @@ const Checkout = () => {
           </React.Fragment>
         </Paper>
       </main>
+      <Footer></Footer>
     </React.Fragment>
   );
 }
