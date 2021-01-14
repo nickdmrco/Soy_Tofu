@@ -71,7 +71,7 @@ export default function Footer() {
             <Grid item xs={4}>
               <Typography align="center">Location</Typography>
               <p align="center">
-                <a className={classes.link} target="_blank" rel="noreferrer" href="https://www.google.com/maps/place/4961+La+Palma+Ave,+La+Palma,+CA+90623/@33.8472895,-118.048716,17z/data=!3m1!4b1!4m5!3m4!1s0x80dd2c3ee07490a9:0xea2e77b1d60cc412!8m2!3d33.8472895!4d-118.046522">4961 La Palma Ave, La Palma, CA, 90623, United States</a>
+                <a className={classes.link} target="_blank" rel="noreferrer" href="https://www.google.com/maps/place/4961+La+Palma+Ave,+La+Palma,+CA+90623/@33.8472895,-118.048716,17z/data=!3m1!4b1!4m5!3m4!1s0x80dd2c3ee07490a9:0xea2e77b1d60cc412!8m2!3d33.8472895!4d-118.046522">4961 La Palma Ave, La Palma, CA, 90623</a>
               </p>
             </Grid>
           </Grid>
