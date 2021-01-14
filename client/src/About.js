@@ -28,7 +28,7 @@ const About = () => {
   return (
     <div className={classes.body}>
       <Parallax bgImage={top} strength={400}>
-        <div style={{ height: 400 }}>
+        <div style={{ height: 500 }}>
           <div></div>
         </div>
       </Parallax>
@@ -39,7 +39,7 @@ const About = () => {
         Soy Tofu specializes in Korean tofu stew and Korean BBQ. We use only the freshest and highest quality ingredients in our dishes, as well as preparing them daily to guarantee the best experience. Our side dishes (banchan) are always changing as we try our best to use ingredients that are in season. We treat our food as an art, and you will experience this first hand when you come through our doors. We humbly welcome you as our guests and await your next visit to our restaurant!
       </p>
       <Parallax bgImage={bottom} strength={400}>
-        <div style={{ height: 400 }}>
+        <div style={{ height: 500 }}>
           <div></div>
         </div>
       </Parallax>
