@@ -4,7 +4,6 @@ import { Parallax } from 'react-parallax'
 import Typography from '@material-ui/core/Typography'
 import top from './img/bibimbap1.jpg'
 import bottom from './img/bibimbap2.jpg'
-import Footer from './components/Footer'
 
 const useStyles = makeStyles((theme) => ({
   body: {

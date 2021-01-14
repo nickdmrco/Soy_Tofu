@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography'
 import ContactInfo from './components/ContactInfo'
 import PaymentForm from './components/PaymentForm'
 import ReviewForm from './components/ReviewForm'
-import Footer from './components/Footer'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
