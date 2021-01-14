@@ -123,7 +123,6 @@ const Checkout = () => {
           </React.Fragment>
         </Paper>
       </main>
-      <Footer></Footer>
     </React.Fragment>
   );
 }
