@@ -1,22 +1,19 @@
-import { useState } from 'react'
 import { useContext } from 'react'
 import CartContext from '../../utils/CartContext'
-import FoodAPI from '../../../utils/FoodAPI'
-
-const { getFood } = FoodAPI
+import Button from '@material-ui/core/Button'
+import { Typography } from '@material-ui/core'
 
 const Menu = () => {
-  const {
-    food,
-    foods,
-    handleAddFood,
-    handleInputChange,
-    handleDeleteFood,
-    handleUpdateFood,
-  } = useContext(CartContext)
+  const { foods } = useContext(CartContext)
+
   return (
     <>
-      <div></div>
+      {foods.map((food, i) => (
+        <>
+          <Typography>{food.name}</Typography>
+          <Button value={i}>{i}</Button>
+        </>
+      ))}
     </>
   )
 }
