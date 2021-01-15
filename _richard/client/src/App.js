@@ -13,8 +13,11 @@ const App = () => {
     orders: [],
   })
 
-  cartState.handleSelectOrder = (event) => {
-    setCartState({ ...cartState, order: cartState.foods[event.target.value] })
+  cartState.handleSelectOrder = (index) => {
+    setCartState({
+      ...cartState,
+      order: cartState.foods[index],
+    })
   }
 
   cartState.handleOrderChange = (event) => {
@@ -23,10 +26,13 @@ const App = () => {
     setCartState({ ...cartState, order: changedOrder })
   }
 
-  cartState.handleAddOrder = (event) => {
+  cartState.handleAddOrder = () => {
+    let orderList = cartState.orders
+    orderList.push(cartState.order)
+    console.log(orderList)
     setCartState({
       ...cartState,
-      orders: cartState.orders.push(cartState.order),
+      orders: orderList,
     })
   }
 
@@ -36,9 +42,9 @@ const App = () => {
     setCartState({ ...cartState, orders: updatedOrders })
   }
 
-  cartState.handleDeleteOrder = (event) => {
+  cartState.handleDeleteOrder = (index) => {
     let updatedOrders = cartState.orders
-    updatedOrders = updatedOrders.splice(event.target.value, 1)
+    updatedOrders.splice(index, 1)
     setCartState({ ...cartState, orders: updatedOrders })
   }
 
@@ -48,8 +54,9 @@ const App = () => {
 
   useEffect(() => {
     getFood()
-      .then(({ data: foods }) => {
-        setCartState({ ...cartState, foods })
+      .then(({ data: food }) => {
+        console.log(food)
+        setCartState({ ...cartState, foods: food })
       })
       .catch((err) => console.error(err))
   }, [])
