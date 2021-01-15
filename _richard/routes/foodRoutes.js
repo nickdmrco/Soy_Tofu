@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const { Food } = require('../models')
 
-router.get('/food', (req, res) => {
+router.get('/foods', (req, res) => {
   Food.find()
-    .then((food) => res.json(food))
+    .then((foods) => res.json(foods))
     .catch((err) => console.log(err))
 })
 

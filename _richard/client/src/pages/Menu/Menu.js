@@ -12,10 +12,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Menu = () => {
   const {
-    foods,
+    displayedFoods,
     order,
     orders,
-    catagory,
     catagories,
     handleCatagoryChange,
     handleSelectOrder,
@@ -31,6 +30,18 @@ const Menu = () => {
       price += Math.floor(orders[i].price * 100)
     }
     price = price / 100 + ''
+    let money = price.split('.')
+    if (money.length > 1) {
+      if (money[1].length < 2) {
+        money[1] += '0'
+      }
+      return `${money[0]}.${money[1]}`
+    }
+    return `${price}.00`
+  }
+
+  const getPrice = (cost) => {
+    let price = cost + ''
     let money = price.split('.')
     if (money.length > 1) {
       if (money[1].length < 2) {
@@ -66,11 +77,12 @@ const Menu = () => {
               ))}
             </CardContent>
           </Card>
-          {foods.map((food, i) => (
+          {displayedFoods.map((food, i) => (
             <Card className={classes.card}>
               <CardContent>
                 <Typography>{food.name}</Typography>
-                <Button onClick={() => handleSelectOrder(i)}>{i}</Button>
+                <Typography>${getPrice(food.price)}</Typography>
+                <Button onClick={() => handleSelectOrder(i)}>+</Button>
               </CardContent>
             </Card>
           ))}
@@ -82,7 +94,7 @@ const Menu = () => {
                 <Typography>{order._id}</Typography>
                 <Typography>{order.name}</Typography>
                 <Button value={i} onClick={() => handleDeleteOrder(i)}>
-                  {i}
+                  Delete
                 </Button>
               </CardContent>
             </Card>

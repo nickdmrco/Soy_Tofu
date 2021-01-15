@@ -11,6 +11,7 @@ const { getCatagories } = CatagoryAPI
 const App = () => {
   const [cartState, setCartState] = useState({
     foods: [],
+    displayedFoods: [],
     order: {},
     orders: [],
     catagory: '',
@@ -18,9 +19,17 @@ const App = () => {
   })
 
   cartState.handleCatagoryChange = (index) => {
+    let catagory = cartState.catagories[index].name
+    let displayedFoods = cartState.foods.filter((food) => {
+      if (food.catagory === catagory) {
+        return true
+      }
+      return false
+    })
     setCartState({
       ...cartState,
-      catagory: cartState.catagories[index].name,
+      displayedFoods: displayedFoods,
+      catagory: catagory,
     })
   }
 
@@ -65,13 +74,15 @@ const App = () => {
 
   useEffect(() => {
     getFood()
-      .then(({ data: food }) => {
-        console.log(food)
+      .then(({ data: foods }) => {
         getCatagories().then(({ data: catagory }) => {
-          console.log(catagory)
+          let displayedFoods = foods.filter((food) => {
+            return food.catagory === catagory[0]
+          })
           setCartState({
             ...cartState,
-            foods: food,
+            foods: foods,
+            displayedFoods: displayedFoods,
             catagory: catagory[0].name,
             catagories: catagory,
           })
