@@ -15,6 +15,9 @@ const Menu = () => {
     foods,
     order,
     orders,
+    catagory,
+    catagories,
+    handleCatagoryChange,
     handleSelectOrder,
     handleAddOrder,
     handleDeleteOrder,
@@ -53,6 +56,15 @@ const Menu = () => {
               <Typography>Desc: {order.description}</Typography>
             </CardContent>
             <Button onClick={() => handleAddOrder()}>Add</Button>
+          </Card>
+          <Card>
+            <CardContent>
+              {catagories.map((catagory, i) => (
+                <Button onClick={() => handleCatagoryChange(i)}>
+                  catagory.name
+                </Button>
+              ))}
+            </CardContent>
           </Card>
           {foods.map((food, i) => (
             <Card className={classes.card}>

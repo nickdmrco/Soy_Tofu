@@ -1,8 +1,8 @@
 const { model, Schema } = require('mongoose')
 
 module.exports = model(
-  'Config',
+  'Catagory',
   new Schema({
-    catagories: Array,
+    name: String,
   }),
 )

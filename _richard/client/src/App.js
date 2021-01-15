@@ -2,16 +2,27 @@ import { useState, useEffect } from 'react'
 import CartContext from './utils/CartContext'
 import Menu from './pages/Menu'
 import FoodAPI from './utils/FoodAPI'
+import CatagoryAPI from './utils/CatagoryAPI'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 const { getFood } = FoodAPI
+const { getCatagories } = CatagoryAPI
 
 const App = () => {
   const [cartState, setCartState] = useState({
     foods: [],
     order: {},
     orders: [],
+    catagory: '',
+    catagories: [],
   })
+
+  cartState.handleCatagoryChange = (index) => {
+    setCartState({
+      ...cartState,
+      catagory: cartState.catagories[index].name,
+    })
+  }
 
   cartState.handleSelectOrder = (index) => {
     setCartState({
@@ -55,8 +66,14 @@ const App = () => {
   useEffect(() => {
     getFood()
       .then(({ data: food }) => {
-        console.log(food)
-        setCartState({ ...cartState, foods: food })
+        getCatagories().then(({ data: catagories }) => {
+          setCartState({
+            ...cartState,
+            foods: food,
+            catagory: catagories[0].name,
+            catagories: catagories,
+          })
+        })
       })
       .catch((err) => console.error(err))
   }, [])
