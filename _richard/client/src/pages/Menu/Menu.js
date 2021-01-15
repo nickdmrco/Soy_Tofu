@@ -61,7 +61,7 @@ const Menu = () => {
             <CardContent>
               {catagories.map((catagory, i) => (
                 <Button onClick={() => handleCatagoryChange(i)}>
-                  catagory.name
+                  {catagory.name}
                 </Button>
               ))}
             </CardContent>

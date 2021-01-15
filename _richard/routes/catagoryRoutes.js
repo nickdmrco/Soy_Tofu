@@ -3,7 +3,7 @@ const { Catagory } = require('../models')
 
 router.get('/catagories', (req, res) => {
   Catagory.find()
-    .then((catagories) => res.json(catagories))
+    .then((catagory) => res.json(catagory))
     .catch((err) => console.log(err))
 })
 

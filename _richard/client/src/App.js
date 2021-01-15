@@ -67,13 +67,13 @@ const App = () => {
     getFood()
       .then(({ data: food }) => {
         console.log(food)
-        getCatagories().then(({ data: catagories }) => {
-          console.log(catagories)
+        getCatagories().then(({ data: catagory }) => {
+          console.log(catagory)
           setCartState({
             ...cartState,
             foods: food,
-            catagory: catagories[0].name,
-            catagories: catagories,
+            catagory: catagory[0].name,
+            catagories: catagory,
           })
         })
       })
