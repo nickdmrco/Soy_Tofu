@@ -2,13 +2,7 @@ import { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import CartContext from '../../utils/CartContext'
 import Button from '@material-ui/core/Button'
-import {
-  Card,
-  CardContent,
-  Grid,
-  TextField,
-  Typography,
-} from '@material-ui/core'
+import { Card, CardContent, Grid, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   card: {
