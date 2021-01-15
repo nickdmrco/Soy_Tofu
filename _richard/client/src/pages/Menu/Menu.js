@@ -62,7 +62,7 @@ const Menu = () => {
             <CardContent>
               <Typography>Name: {order.name}</Typography>
               <Typography>Image: {order.image}</Typography>
-              <Typography>Price: {order.price}</Typography>
+              <Typography>Price: ${getPrice(order.price)}</Typography>
               <Typography>Catagory: {order.catagory}</Typography>
               <Typography>Desc: {order.description}</Typography>
             </CardContent>
@@ -82,7 +82,7 @@ const Menu = () => {
               <CardContent>
                 <Typography>{food.name}</Typography>
                 <Typography>${getPrice(food.price)}</Typography>
-                <Button onClick={() => handleSelectOrder(i)}>+</Button>
+                <Button onClick={() => handleSelectOrder(food)}>+</Button>
               </CardContent>
             </Card>
           ))}
@@ -93,6 +93,7 @@ const Menu = () => {
               <CardContent>
                 <Typography>{order._id}</Typography>
                 <Typography>{order.name}</Typography>
+                <Typography>${getPrice(order.price)}</Typography>
                 <Button value={i} onClick={() => handleDeleteOrder(i)}>
                   Delete
                 </Button>

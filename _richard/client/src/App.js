@@ -33,10 +33,10 @@ const App = () => {
     })
   }
 
-  cartState.handleSelectOrder = (index) => {
+  cartState.handleSelectOrder = (food) => {
     setCartState({
       ...cartState,
-      order: cartState.foods[index],
+      order: food,
     })
   }
 
