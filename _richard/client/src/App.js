@@ -66,7 +66,9 @@ const App = () => {
   useEffect(() => {
     getFood()
       .then(({ data: food }) => {
+        console.log(food)
         getCatagories().then(({ data: catagories }) => {
+          console.log(catagories)
           setCartState({
             ...cartState,
             foods: food,
