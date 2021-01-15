@@ -1,801 +1,259 @@
 [{
-  "_id": {
-    "$oid": "5ffc9a9aeb39382b6ce8b733"
-  },
+  id: 1,
   "name": "Beef + Seafood",
   "description": "beef, shrimp, clam, baby octopus",
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9af8eb39382b6ce8b734"
-  },
-  "name": "Mushroom",
-  "description": "cremini, enoki, king trumpet mushrooms",
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+    id: 2,
+    "name": "Mushroom",
+    "description": "cremini, enoki, king trumpet mushrooms",
+    price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9b18eb39382b6ce8b735"
-  },
+  id: 3,
   "name": "Seafood",
   "description": "shrimp, clam, baby octopus",
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9b88eb39382b6ce8b736"
-  },
-  "name": "Oyster",
-  "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+    id: 4,
+    "name": "Oyster",
+    "description": null,
+    price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9b9feb39382b6ce8b737"
-  },
+  id: 5,
   "name": "Clam",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9bafeb39382b6ce8b738"
-  },
+  id: 6,
   "name": "Kimchi",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9bb6eb39382b6ce8b739"
-  },
+  id: 7,
   "name": "Beef",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9bd0eb39382b6ce8b73a"
-  },
+  id: 8,
   "name": "Pork",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9bddeb39382b6ce8b73b"
-  },
+  id: 9,
   "name": "Beef Small Intestine",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9beceb39382b6ce8b73c"
-  },
+  id: 10,
   "name": "Dumpling",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9bf9eb39382b6ce8b73d"
-  },
+  id: 11,
   "name": "Baby Octopus",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9f93eb39382b6ce8b73e"
-  },
-  "name": "Vegeterian Tofu",
+  id: 12,
+  "name": "Vegetarian Tofu",
   "description": "vegeterian broth w/ brocolli, squash, mushrooms, and carrots",
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9faaeb39382b6ce8b73f"
-  },
+  id: 13,
   "name": "Ham and Cheese",
   "description": null,
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffc9fc0eb39382b6ce8b740"
-  },
+  id: 14,
   "name": "Plain Tofu",
-  "description": "Only Tofu",
-  "price": 12.5,
-  "category": {
-    "tofu": {
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  "description": null,
+  price: 12.5
 },{
-  "_id": {
-    "$oid": "5ffca0cfeb39382b6ce8b741"
-  },
+  id: 15,
   "name": "BBQ Short Ribs + Tofu",
   "description": null,
-  "price": 27,
-  "category": {
-    "tofu combo": {
-      "tofu": [
-        "beef + seafood",
-        "mushroom",
-        "seafood",
-        "oyster",
-        "clam",
-        "kimchi",
-        "beef",
-        "pork",
-        "beef small intestine",
-        "dumpling",
-        "baby octopus",
-        "vegeterian tofu",
-        "ham and cheese",
-        "plain tofu"
-      ],
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 27
 },{
-  "_id": {
-    "$oid": "5ffca1d1eb39382b6ce8b742"
-  },
+  id: 16,
   "name": "BBQ Beef + Tofu",
   "description": null,
-  "price": 25,
-  "category": {
-    "tofu combo": {
-      "tofu": [
-        "beef + seafood",
-        "mushroom",
-        "seafood",
-        "oyster",
-        "clam",
-        "kimchi",
-        "beef",
-        "pork",
-        "beef small intestine",
-        "dumpling",
-        "baby octopus",
-        "vegeterian tofu",
-        "ham and cheese",
-        "plain tofu"
-      ],
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 25
 },{
-  "_id": {
-    "$oid": "5ffca1f9eb39382b6ce8b743"
-  },
+  id: 17,
   "name": "Grilled Chicken + Tofu",
   "description": null,
-  "price": 24,
-  "category": {
-    "tofu combo": {
-      "tofu": [
-        "beef + seafood",
-        "mushroom",
-        "seafood",
-        "oyster",
-        "clam",
-        "kimchi",
-        "beef",
-        "pork",
-        "beef small intestine",
-        "dumpling",
-        "baby octopus",
-        "vegeterian tofu",
-        "ham and cheese",
-        "plain tofu"
-      ],
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 24
 },{
-  "_id": {
-    "$oid": "5ffca25deb39382b6ce8b744"
-  },
+  id: 18,
   "name": "Spicy BBQ Pork + Tofu",
   "description": null,
-  "price": 24,
-  "category": {
-    "tofu combo": {
-      "tofu": [
-        "beef + seafood",
-        "mushroom",
-        "seafood",
-        "oyster",
-        "clam",
-        "kimchi",
-        "beef",
-        "pork",
-        "beef small intestine",
-        "dumpling",
-        "baby octopus",
-        "vegeterian tofu",
-        "ham and cheese",
-        "plain tofu"
-      ],
-      "spice": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
-    }
-  },
-  "image": null
+  price: 24
 },{
-  "_id": {
-    "$oid": "5ffca58ceb39382b6ce8b745"
-  },
+  id: 19,
   "name": "BBQ Short Ribs",
   "description": "grilled kalbi over diced onions",
-  "price": 28,
-  "category": {
-    "bbq entree": {}
-  },
-  "image": null
+  price: 28
 },{
-  "_id": {
-    "$oid": "5ffca5aaeb39382b6ce8b746"
-  },
+  id: 20,
   "name": "BBQ Beef Bulgogi",
   "description": "grilled bulgogi over diced onions",
-  "price": 26,
-  "category": {
-    "bbq entree": {}
-  },
-  "image": null
+  price: 26
 },{
-  "_id": {
-    "$oid": "5ffca5c8eb39382b6ce8b747"
-  },
+  id: 21,
   "name": "Spicy BBQ Pork",
   "description": "grilled spicy pork over diced onions",
-  "price": 25,
-  "category": {
-    "bbq entree": {}
-  },
-  "image": null
+  price: 25
 },{
-  "_id": {
-    "$oid": "5ffca5e2eb39382b6ce8b748"
-  },
+  id: 22,
   "name": "Grilled Chicken",
   "description": "grilled chicken over diced onions",
-  "price": 25,
-  "category": {
-    "bbq entree": {}
-  },
-  "image": null
+  price: 25
 },{
-  "_id": {
-    "$oid": "5ffca601eb39382b6ce8b749"
-  },
+  id: 23,
   "name": "Pork Cutlet",
   "description": null,
-  "price": 13,
-  "category": {
-    "cutlets": {}
-  },
-  "image": null
+  price: 13
 },{
-  "_id": {
-    "$oid": "5ffca67feb39382b6ce8b74a"
-  },
+  id: 24,
   "name": "Pizza Pork Cutlet",
-  "description": "vegetables with mozzarella cheese over a breaded pork cutlet",
-  "price": 15,
-  "category": {
-    "cutlets": {}
-  },
-  "image": null
+  "description": "grilled chicken over diced onions",
+  price: 25
 },{
-  "_id": {
-    "$oid": "5ffca88ceb39382b6ce8b74b"
-  },
+  id: 25,
   "name": "Hot Stone Pot Beef Bibimbap",
   "description": "beef, assorted vegetables, egg over rice in a stone pot",
-  "price": 14,
-  "category": {
-    "bibimbap": {}
-  },
-  "image": null
+  price: 14
 },{
-  "_id": {
-    "$oid": "5ffca9faeb39382b6ce8b74c"
-  },
+  id: 26,
   "name": "Hot Stone Pot Chicken Bibimbap",
   "description": "chicken, assorted vegetables, egg over rice in a stone pot",
-  "price": 15,
-  "category": {
-    "bibimbap": {}
-  },
-  "image": null
+  price: 15
 },{
-  "_id": {
-    "$oid": "5ffcab86eb39382b6ce8b74d"
-  },
+  id: 27,
   "name": "Hot Stone Pot Tofu Bibimbap",
-  "description": "tofu, assorted vegetables, egg over rice in a stone pot",
-  "price": 15,
-  "category": {
-    "bibimbap": {}
-  },
-  "image": null
+  "description": "beef, assorted vegetables, egg over rice in a stone pot",
+  price: 15
 },{
-  "_id": {
-    "$oid": "5ffcabbeeb39382b6ce8b74e"
-  },
-  "name": "Cold Bibimbap",
-  "description": "beef, assorted vegetables, egg over rice",
-  "price": 13,
-  "category": {
-    "bibimbap": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcabe6eb39382b6ce8b74f"
-  },
+  id: 28,
   "name": "Kimchi Fried Rice with Bulgogi",
   "description": null,
-  "price": 12,
-  "category": {
-    "bibimbap": {}
-  },
-  "image": null
+  price: 12
 },{
-  "_id": {
-    "$oid": "5ffcabfceb39382b6ce8b750"
-  },
+  id: 29,
   "name": "Kimchi Fried Rice with Grilled Chicken",
   "description": null,
-  "price": 12,
-  "category": {
-    "bibimbap": {}
-  },
-  "image": null
+  price: 12
 },{
-  "_id": {
-    "$oid": "5ffcac05eb39382b6ce8b751"
-  },
+  id: 30,
   "name": "Kimchi Fried Rice with Spicy Pork",
   "description": null,
-  "price": 12,
-  "category": {
-    "bibimbap": {}
-  },
-  "image": null
+  price: 12
 },{
-  "_id": {
-    "$oid": "5ffcac40eb39382b6ce8b752"
-  },
+  id: 31,
   "name": "Boiled Beef Stew",
   "description": null,
-  "price": 16,
-  "category": {
-    "stew": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcacb9eb39382b6ce8b753"
-  },
-  "name": "Handmade Noodle with Seafood",
-  "description": "Korean knife-cut flour-based noodle in a crab soup base w/squash, clam, shrimp, crab, mussel, and baby octopus",
-  "price": 13,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcacf6eb39382b6ce8b754"
-  },
-  "name": "BBQ Beef Noodle",
-  "description": "spicy broth w/ beef bulgogi",
-  "price": 12,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcad20eb39382b6ce8b755"
-  },
-  "name": "Spicy Pork Noodle",
-  "description": "spicy broth w/ spicy pork",
-  "price": 12,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcad38eb39382b6ce8b756"
-  },
-  "name": "Chicken Noodle",
-  "description": "spicy broth w/ grilled chicken",
-  "price": 12,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcad7deb39382b6ce8b757"
-  },
-  "name": "Seafood Noodle",
-  "description": "spicy broth w/ clam, shrimp, crab, mussel, and octopus",
-  "price": 12,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcadbfeb39382b6ce8b758"
-  },
-  "name": "Vegetable Noodle",
-  "description": "vegetarian broth w/ brocolli, mushroom, and carrots",
-  "price": 12,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbd29eb39382b6ce8b759"
-  },
-  "name": "Cold Noodle",
-  "description": "buckwheat noodle in a sweet & sour broth w/ cucumber, egg, and radish",
-  "price": 13,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbd54eb39382b6ce8b75a"
-  },
-  "name": "Spicy Cold Noodle",
-  "description": "buckwheat noodle in a spicy sweet and sour broth w/ cucumber, egg, and radish",
-  "price": 13,
-  "category": {
-    "noodles": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbd84eb39382b6ce8b75b"
-  },
-  "name": "Cold Noodle or Spicy Cold Noodle + Galbi",
+  price: 16
+},
+{
+  id: 32,
+  "name": "Beef Rib Stew",
   "description": null,
-  "price": 27,
-  "category": {
-    "noodles combo": {
-      "spice": [
-        "0",
-        "1"
-      ]
-    }
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbd96eb39382b6ce8b75c"
-  },
-  "name": "Cold Noodle or Spicy Cold Noodle + Bulgogi",
-  "description": null,
-  "price": 25,
-  "category": {
-    "noodles combo": {
-      "spice": [
-        "0",
-        "1"
-      ]
-    }
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbda6eb39382b6ce8b75d"
-  },
-  "name": "Cold Noodle or Spicy Cold Noodle + Grilled Chicken",
-  "description": null,
-  "price": 24,
-  "category": {
-    "noodles combo": {
-      "spice": [
-        "0",
-        "1"
-      ]
-    }
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbdbceb39382b6ce8b75e"
-  },
-  "name": "Cold Noodle or Spicy Cold Noodle + Spicy BBQ Pork",
-  "description": null,
-  "price": 25,
-  "category": {
-    "noodles combo": {
-      "spice": [
-        "0",
-        "1"
-      ]
-    }
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbe0eeb39382b6ce8b75f"
-  },
-  "name": "Seafood Pancake",
-  "description": null,
-  "price": 20,
-  "category": {
-    "house specialty": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbe86eb39382b6ce8b760"
-  },
-  "name": "Kimchi Pancake",
-  "description": null,
-  "price": 15,
-  "category": {
-    "house specialty": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcbe96eb39382b6ce8b761"
-  },
-  "name": "Vegetable Pancake",
-  "description": null,
-  "price": 15,
-  "category": {
-    "house specialty": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcc005eb39382b6ce8b762"
-  },
-  "name": "Steamed Dumpling",
-  "description": null,
-  "price": 12,
-  "category": {
-    "house specialty": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcc01feb39382b6ce8b763"
-  },
-  "name": "Fried Dumpling",
-  "description": null,
-  "price": 12,
-  "category": {
-    "house specialty": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffcc02beb39382b6ce8b764"
-  },
-  "name": "Tofu Salad",
-  "description": null,
-  "price": 12,
-  "category": {
-    "house specialty": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffdf5423de185250c13f595"
-  },
-  "name": "Beef Ribs Stew",
-  "description": null,
-  "price": 14,
-  "category": {
-    "stew": {}
-  },
-  "image": null
-},{
-  "_id": {
-    "$oid": "5ffdf58a3de185250c13f596"
-  },
+  price: 14
+},
+{
+  id: 33,
   "name": "Budae Stew",
   "description": null,
-  "price": 13,
-  "category": {
-    "stew": {}
-  },
-  "image": null
+  price: 13
+},{
+  id: 34,
+  "name": "Handmade Noodle with Seafood",
+  "description": "Korean knife-cut flour-based noodle in a crab soup base w/ squash, clam, shrimp, crab, mussel, and baby octopus",
+  price: 13
+},{
+  id: 35,
+  "name": "BBQ Beef Noodle",
+  "description": "spicy broth w/ beef bulgogi",
+  price: 12
+},{
+  id: 36,
+  "name": "Spicy Pork Noodle",
+  "description": "spicy broth w/ spicy pork",
+  price: 12
+},{
+  id: 37,
+  "name": "Chicken Noodle",
+  "description": "spicy broth w/ grilled chicken",
+  price: 12
+},{
+  id: 38,
+  "name": "Seafood Noodle",
+  "description": "spicy broth w/ clam, shrimp, crab, mussel, and octopus",
+  price: 12
+},{
+  id: 39,
+  "name": "Vegetable Noodle",
+  "description": "vegetarian broth w/ brocolli, mushroom, and carrots",
+  price: 12
+},{
+  id: 40,
+  "name": "Cold Noodle",
+  "description": "buckwheat noddle in a sweet & sour broth w/ cucumber, egg, and radish",
+  price: 13
+},
+{
+  id: 41,
+  "name": "Spicy Cold Noodle",
+  "description": "buckwheat noddle in a spicy sweet & sour broth w/ cucumber, egg, and radish",
+  price: 13
+},{
+  id: 42,
+  "name": "Cold Noodle or Spicy Cold Noodle + Galbi",
+  "description": null,
+  price: 27
+},{
+  id: 43,
+  "name": "Cold Noodle or Spicy Cold Noodle + Bulgogi",
+  "description": null,
+  price: 25
+},{
+  id: 44,
+  "name": "Cold Noodle or Spicy Cold Noodle + Grilled Chicken",
+  "description": null,
+  price: 24
+},{
+  id: 45,
+  "name": "Cold Noodle or Spicy Cold Noodle + Spicy BBQ Pork",
+  "description": null,
+  price: 25
+},{
+  id: 46,
+  "name": "Seafood Pancake",
+  "description": null,
+  price: 20
+},{
+  id: 47,
+  "name": "Kimchi Pancake",
+  "description": null,
+  price: 15
+},{
+  id: 48,
+  "name": "Vegetable Pancake",
+  "description": null,
+  price: 15
+},{
+  id: 49,
+  "name": "Steamed Dumpling",
+  "description": null,
+  price: 12
+},{
+  id: 50,
+  "name": "Fried Dumpling",
+  "description": null,
+  price: 12
+},{
+  id: 51,
+  "name": "Tofu Salad",
+  "description": null,
+  price: 13
 }]
