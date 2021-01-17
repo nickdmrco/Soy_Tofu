@@ -1,15 +1,10 @@
 import { createContext } from 'react'
 
 const CartContext = createContext({
-  foods: [],
-  displayedFoods: [],
-  order: {},
-  orders: [],
-  catagory: '',
   catagories: [],
-  handleChangeCatagory: () => {},
-  handleSelectOrder: () => {},
-  handleOrderChange: () => {},
+  foods: [],
+  foodsById: {},
+  orders: [],
   handleAddOrder: () => {},
   handleUpdateOrder: () => {},
   handleDeleteOrder: () => {},

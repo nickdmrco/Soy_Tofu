@@ -11,15 +11,17 @@ const { getCatagories } = CatagoryAPI
 const App = () => {
   const [cartState, setCartState] = useState({
     catagories: [],
-    foods: {},
-    foodsByCatagory: [],
+    foods: [],
+    foodsById: {},
     orders: [],
   })
 
   cartState.handleAddOrder = (order) => {
+    let orders = cartState.orders
+    orders.push(order)
     setCartState({
       ...cartState,
-      orders: cartState.orders.push(order),
+      orders: orders,
     })
   }
 
@@ -42,20 +44,15 @@ const App = () => {
   useEffect(() => {
     getCatagories()
       .then(({ data: catagories }) => {
-        let foodsByCatagory = {}
-        catagories.foreach((catagory) => {
-          foodsByCatagory[catagory] = []
-        })
         getFoods().then(({ data: foods }) => {
           let foodsObj = {}
-          foods.foreach((food) => {
-            foodsByCatagory[food.catagory].push(food)
+          foods.forEach((food) => {
             foodsObj[food._id] = food
           })
           setCartState({
             ...cartState,
             foods: foods,
-            foodsByCatagory: foodsByCatagory,
+            foodsById: foodsObj,
             catagories: catagories,
           })
         })
