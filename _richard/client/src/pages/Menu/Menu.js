@@ -105,10 +105,13 @@ const Menu = () => {
   }
 
   const handleOrderChoiceChange = (event, index) => {
+    console.log(orders)
     let order = orderState
     let food = foodState
-    let orderOptions = order.options
-    orderOptions[index] = event.target.value
+    let orderOptions = order.options.map((option) => {
+      return option
+    })
+    orderOptions[index] = parseInt(event.target.value)
     let total = 0
     food.options.forEach((option, i) => {
       total += option.choices[orderOptions[i]].price
@@ -124,7 +127,7 @@ const Menu = () => {
     } else {
       return (
         <Typography>
-          ${numberToMoney(lowest)}~${highest}
+          ${numberToMoney(lowest)}~${numberToMoney(highest)}
         </Typography>
       )
     }
@@ -140,7 +143,7 @@ const Menu = () => {
         <RadioGroup
           aria-label={option.name}
           name={option.name}
-          value={orderState.options[index] + ''}
+          value={orderState.options[index]}
           onChange={(event) => handleOrderChoiceChange(event, index)}
         >
           {option.choices.map((choice, i) => (
@@ -218,7 +221,7 @@ const Menu = () => {
                 <Typography>${numberToMoney(order.total)}</Typography>
                 {foodsById[order.id].options.map((option, i) => {
                   if (option.choices.length < 2) {
-                    return
+                    return <></>
                   }
                   return (
                     <Typography>{`${option.name}: ${
