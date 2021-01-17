@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const FoodAPI = {
-  getFood: () => axios.get('/api/foods'),
+  getFoods: () => axios.get('/api/foods'),
 }
 
 export default FoodAPI

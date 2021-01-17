@@ -1,8 +1,9 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import CartContext from '../../utils/CartContext'
 import Button from '@material-ui/core/Button'
 import { Card, CardContent, Grid, Typography } from '@material-ui/core'
+import numberToMoney from '../../utils/lib/numberToMoney'
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -11,17 +12,24 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Menu = () => {
+  const classes = useStyles()
   const {
-    displayedFoods,
-    order,
+    foods,
+    foodsByCatagory,
     orders,
     catagories,
-    handleCatagoryChange,
-    handleSelectOrder,
-    handleAddOrder,
-    handleDeleteOrder,
+    handleUpdateOrders,
+    handleAddOrders,
+    handleDeleteOrders,
   } = useContext(CartContext)
-  const classes = useStyles()
+
+  const [catagoryState, setCatagoryState] = useState({
+    catagory: catagories[0],
+  })
+
+  const handleChangeCatagory = (index) => {
+    setCatagoryState({ catagory: catagories[index] })
+  }
 
   const totalPrice = () => {
     let price = 0
@@ -29,60 +37,36 @@ const Menu = () => {
     for (let i = 0; i < len; i++) {
       price += Math.floor(orders[i].price * 100)
     }
-    price = price / 100 + ''
-    let money = price.split('.')
-    if (money.length > 1) {
-      if (money[1].length < 2) {
-        money[1] += '0'
-      }
-      return `${money[0]}.${money[1]}`
-    }
-    return `${price}.00`
-  }
+    price = price / 100
 
-  const getPrice = (cost) => {
-    let price = cost + ''
-    let money = price.split('.')
-    if (money.length > 1) {
-      if (money[1].length < 2) {
-        money[1] += '0'
-      }
-      return `${money[0]}.${money[1]}`
-    }
-    return `${price}.00`
+    return numberToMoney(price)
   }
 
   const total = totalPrice()
+
+  const renderSelectedOrder = () => {}
 
   return (
     <>
       <Grid container>
         <Grid item xs={9}>
-          <Card>
-            <CardContent>
-              <Typography>Name: {order.name}</Typography>
-              <Typography>Image: {order.image}</Typography>
-              <Typography>Price: ${getPrice(order.price)}</Typography>
-              <Typography>Catagory: {order.catagory}</Typography>
-              <Typography>Desc: {order.description}</Typography>
-            </CardContent>
-            <Button onClick={() => handleAddOrder()}>Add</Button>
-          </Card>
+          {
+            //Order Render goes here
+          }
           <Card>
             <CardContent>
               {catagories.map((catagory, i) => (
-                <Button onClick={() => handleCatagoryChange(i)}>
+                <Button onClick={() => handleChangeCatagory(i)}>
                   {catagory.name}
                 </Button>
               ))}
             </CardContent>
           </Card>
-          {displayedFoods.map((food, i) => (
+          {foodsByCatagory[catagoryState.catagory].map((food, i) => (
             <Card className={classes.card}>
               <CardContent>
                 <Typography>{food.name}</Typography>
-                <Typography>${getPrice(food.price)}</Typography>
-                <Button onClick={() => handleSelectOrder(food)}>+</Button>
+                <Typography>${numberToMoney(food.lowest)}</Typography>
               </CardContent>
             </Card>
           ))}
@@ -93,8 +77,8 @@ const Menu = () => {
               <CardContent>
                 <Typography>{order._id}</Typography>
                 <Typography>{order.name}</Typography>
-                <Typography>${getPrice(order.price)}</Typography>
-                <Button value={i} onClick={() => handleDeleteOrder(i)}>
+                <Typography>${numberToMoney(order.price)}</Typography>
+                <Button value={i} onClick={() => handleDeleteOrders(i)}>
                   Delete
                 </Button>
               </CardContent>

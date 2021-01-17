@@ -5,64 +5,31 @@ import FoodAPI from './utils/FoodAPI'
 import CatagoryAPI from './utils/CatagoryAPI'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-const { getFood } = FoodAPI
+const { getFoods } = FoodAPI
 const { getCatagories } = CatagoryAPI
 
 const App = () => {
   const [cartState, setCartState] = useState({
-    foods: [],
-    displayedFoods: [],
-    order: {},
-    orders: [],
-    catagory: '',
     catagories: [],
+    foods: {},
+    foodsByCatagory: [],
+    orders: [],
   })
 
-  cartState.handleCatagoryChange = (index) => {
-    let catagory = cartState.catagories[index].name
-    let displayedFoods = cartState.foods.filter((food) => {
-      if (food.catagory === catagory) {
-        return true
-      }
-      return false
-    })
+  cartState.handleAddOrder = (order) => {
     setCartState({
       ...cartState,
-      displayedFoods: displayedFoods,
-      catagory: catagory,
+      orders: cartState.orders.push(order),
     })
   }
 
-  cartState.handleSelectOrder = (food) => {
-    setCartState({
-      ...cartState,
-      order: food,
-    })
-  }
-
-  cartState.handleOrderChange = (event) => {
-    let changedOrder = cartState.order
-    changedOrder[event.target.name] = event.target.value
-    setCartState({ ...cartState, order: changedOrder })
-  }
-
-  cartState.handleAddOrder = () => {
-    let orderList = cartState.orders
-    orderList.push(cartState.order)
-    console.log(orderList)
-    setCartState({
-      ...cartState,
-      orders: orderList,
-    })
-  }
-
-  cartState.handleUpdateOrder = (event) => {
+  cartState.handleUpdateOrders = (index, order) => {
     let updatedOrders = cartState.orders
-    updatedOrders[event.target.value] = cartState.order
+    updatedOrders[index] = order
     setCartState({ ...cartState, orders: updatedOrders })
   }
 
-  cartState.handleDeleteOrder = (index) => {
+  cartState.handleDeleteOrders = (index) => {
     let updatedOrders = cartState.orders
     updatedOrders.splice(index, 1)
     setCartState({ ...cartState, orders: updatedOrders })
@@ -73,18 +40,23 @@ const App = () => {
   }
 
   useEffect(() => {
-    getFood()
-      .then(({ data: foods }) => {
-        getCatagories().then(({ data: catagory }) => {
-          let displayedFoods = foods.filter((food) => {
-            return food.catagory === catagory[0]
+    getCatagories()
+      .then(({ data: catagories }) => {
+        let foodsByCatagory = {}
+        catagories.foreach((catagory) => {
+          foodsByCatagory[catagory] = []
+        })
+        getFoods().then(({ data: foods }) => {
+          let foodsObj = {}
+          foods.foreach((food) => {
+            foodsByCatagory[food.catagory].push(food)
+            foodsObj[food._id] = food
           })
           setCartState({
             ...cartState,
             foods: foods,
-            displayedFoods: displayedFoods,
-            catagory: catagory[0].name,
-            catagories: catagory,
+            foodsByCatagory: foodsByCatagory,
+            catagories: catagories,
           })
         })
       })

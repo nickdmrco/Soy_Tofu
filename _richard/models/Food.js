@@ -5,8 +5,21 @@ module.exports = model(
   new Schema({
     name: String,
     image: String,
-    price: Number,
     catagory: String,
+    options: [
+      {
+        name: String,
+        choices: [
+          {
+            name: String,
+            price: Number,
+          },
+        ],
+      },
+    ],
+
     description: String,
+    lowestPrice: Number,
+    highestPrice: Number,
   }),
 )
