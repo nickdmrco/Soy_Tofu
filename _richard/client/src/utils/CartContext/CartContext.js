@@ -5,6 +5,7 @@ const CartContext = createContext({
   foods: [],
   foodsById: {},
   orders: [],
+  handleCreateOrders: () => {},
   handleAddOrder: () => {},
   handleUpdateOrder: () => {},
   handleDeleteOrder: () => {},

@@ -4,6 +4,7 @@ import CartContext from '../../utils/CartContext'
 import Button from '@material-ui/core/Button'
 import {
   Card,
+  CardActionArea,
   CardContent,
   FormControl,
   FormControlLabel,
@@ -16,8 +17,19 @@ import {
 import numberToMoney from '../../utils/lib/numberToMoney'
 
 const useStyles = makeStyles((theme) => ({
-  card: {
-    maxWidth: '25%',
+  col: {
+    height: '100%',
+  },
+  orderMenu: {
+    height: '40%',
+    maxHeight: '40%',
+    overflow: 'auto',
+  },
+
+  cart: {
+    height: '80%',
+    maxHeight: '80%',
+    overflow: 'auto',
   },
 }))
 
@@ -31,17 +43,34 @@ const Menu = () => {
     handleUpdateOrders,
     handleAddOrder,
     handleDeleteOrders,
+    handleCreateOrders,
   } = useContext(CartContext)
-
-  const blankOrder = {
-    id: '',
-    options: [],
-    total: 0,
-  }
 
   const [foodByCatagoryState, setfoodByCatagoryState] = useState({
     foods: [],
+    isDefaultLoaded: false,
   })
+
+  const emptyFood = {
+    _id: '',
+    name: '',
+    image: '',
+    catagory: '',
+    options: [
+      {
+        name: '',
+        choices: [
+          {
+            name: '',
+            price: 0,
+          },
+        ],
+      },
+    ],
+    description: '',
+    lowestPrice: 0,
+    highestPrice: 0,
+  }
 
   const [foodState, setFoodState] = useState({
     _id: '',
@@ -64,20 +93,27 @@ const Menu = () => {
     highestPrice: 0,
   })
 
-  const [orderState, setOrderState] = useState({
-    id: '',
+  const emptyOrder = {
+    foodId: '',
     options: [],
+    total: 0,
+  }
+
+  const [orderState, setOrderState] = useState({
+    foodId: '',
+    options: [
+      {
+        name: '',
+        chioiceName: '',
+        value: 0,
+      },
+    ],
     total: 0,
   })
 
-  const handleChangeCatagory = (index) => {
-    let catagory = catagories[index].name
-
-    let foodsByCatagory = foods.filter((food) => {
-      return food.catagory === catagory
-    })
-    setfoodByCatagoryState({ foods: foodsByCatagory })
-  }
+  const [editState, setEditState] = useState({
+    index: '',
+  })
 
   const totalPrice = () => {
     let price = 0
@@ -90,10 +126,19 @@ const Menu = () => {
     return numberToMoney(price)
   }
 
-  const handleOrderChange = (id) => {
-    let food = foodsById[id]
+  const handleChangeCatagory = (index) => {
+    let catagory = catagories[index].name
+
+    let foodsByCatagory = foods.filter((food) => {
+      return food.catagory === catagory
+    })
+    setfoodByCatagoryState({ foods: foodsByCatagory, isDefaultLoaded: true })
+  }
+
+  const handleOrderChange = (foodId) => {
+    let food = foodsById[foodId]
     let order = {
-      id: id,
+      foodId: foodId,
       name: food.name,
       options: food.options.map(() => {
         return 0
@@ -101,16 +146,24 @@ const Menu = () => {
       total: food.lowestPrice,
     }
     setFoodState({ ...food })
+    setEditState({ index: -1 })
     setOrderState({ ...order })
+  }
+
+  const handleEditOrder = (index) => {
+    let order = JSON.parse(JSON.stringify(orders[index]))
+    let food = foodsById[order.foodId]
+
+    setFoodState({ ...food })
+    setOrderState({ ...order })
+    setEditState({ index: index })
   }
 
   const handleOrderChoiceChange = (event, index) => {
     console.log(orders)
     let order = orderState
     let food = foodState
-    let orderOptions = order.options.map((option) => {
-      return option
-    })
+    let orderOptions = order.options
     orderOptions[index] = parseInt(event.target.value)
     let total = 0
     food.options.forEach((option, i) => {
@@ -133,7 +186,7 @@ const Menu = () => {
     }
   }
 
-  const renderOrderOptions = (option, index) => {
+  const renderFoodOptions = (option, index) => {
     if (option.choices.length < 2) {
       return
     }
@@ -158,11 +211,58 @@ const Menu = () => {
     )
   }
 
-  return (
-    <>
-      <Grid container>
-        <Grid item xs={9}>
+  const renderAddOrderButton = (index) => {
+    if (index !== '') {
+      let btnText = index < 0 ? 'Add to Cart' : `Edit Order #${index + 1}`
+      let onClick =
+        index < 0
+          ? () => handleAddOrder(orderState)
+          : () => handleUpdateOrders(index, orderState)
+      return (
+        <Button
+          size="small"
+          color="primary"
+          variant="contained"
+          onClick={() => onClick()}
+        >
+          {btnText}
+        </Button>
+      )
+    }
+  }
+
+  const renderFoodMenu = () => {
+    if (!foodByCatagoryState.isDefaultLoaded) {
+      if (catagories.length < 1) {
+        return
+      }
+      handleChangeCatagory(0)
+    }
+
+    return (
+      <>
+        {foodByCatagoryState.foods.map((food, i) => (
           <Card>
+            <CardActionArea onClick={() => handleOrderChange(food._id)}>
+              <CardContent>
+                <Typography>{food.name}</Typography>
+                {renderLowestHighestPrice(food.lowestPrice, food.highestPrice)}
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        ))}
+      </>
+    )
+  }
+  const callback = (cb) => {
+    return cb()
+  }
+
+  return (
+    <div className={classes.col}>
+      <Grid className={classes.col} container>
+        <Grid item xs={9}>
+          <Card className={classes.orderMenu}>
             <CardContent>
               <Typography>Image:{foodState.image}</Typography>
               <Typography>Name:{foodState.name}</Typography>
@@ -171,21 +271,11 @@ const Menu = () => {
               <Typography>{foodState.description}</Typography>
               <Typography>Total:${numberToMoney(orderState.total)}</Typography>
               {foodState.options.map((option, i) => (
-                <>{renderOrderOptions(option, i)}</>
+                <>{renderFoodOptions(option, i)}</>
               ))}
             </CardContent>
-            <Button
-              size="small"
-              color="primary"
-              variant="contained"
-              onClick={() => {
-                handleAddOrder(orderState)
-                setOrderState({ ...orderState })
-              }}
-            >
-              Add To Cart
-            </Button>
           </Card>
+          {renderAddOrderButton(editState.index)}
           <Card>
             <CardContent>
               {catagories.map((catagory, i) => (
@@ -195,57 +285,62 @@ const Menu = () => {
               ))}
             </CardContent>
           </Card>
-          {foodByCatagoryState.foods.map((food, i) => (
-            <Card className={classes.card}>
-              <CardContent>
-                <Typography>{food.name}</Typography>
-                {renderLowestHighestPrice(food.lowestPrice, food.highestPrice)}
-                <Button
-                  size="small"
-                  color="primary"
-                  variant="contained"
-                  onClick={() => handleOrderChange(food._id)}
-                >
-                  Select
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          {renderFoodMenu()}
         </Grid>
         <Grid item xs={3}>
-          {orders.map((order, i) => (
-            <Card>
-              <CardContent>
-                <Typography>{order.id}</Typography>
-                <Typography>{order.name}</Typography>
-                <Typography>${numberToMoney(order.total)}</Typography>
-                {foodsById[order.id].options.map((option, i) => {
-                  if (option.choices.length < 2) {
-                    return <></>
-                  }
-                  return (
-                    <Typography>{`${option.name}: ${
-                      option.choices[order.options[i]].name
-                    } + $${numberToMoney(
-                      option.choices[order.options[i]].price,
-                    )}`}</Typography>
-                  )
-                })}
-                <Button
-                  size="small"
-                  color="secondary"
-                  variant="contained"
-                  onClick={() => handleDeleteOrders(i)}
-                >
-                  Remove Order
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          <Card className={classes.cart}>
+            {orders.map((order, i) => (
+              <Card>
+                <CardActionArea onClick={() => handleEditOrder(i)}>
+                  <CardContent>
+                    <Typography>Order# {i + 1}</Typography>
+                    <Typography>{order.name}</Typography>
+                    <Typography>${numberToMoney(order.total)}</Typography>
+                    {foodsById[order.foodId].options.map((option, i) => {
+                      if (option.choices.length < 2) {
+                        return <></>
+                      }
+                      return (
+                        <Typography>{`${option.name}: ${
+                          option.choices[order.options[i]].name
+                        } + $${numberToMoney(
+                          option.choices[order.options[i]].price,
+                        )}`}</Typography>
+                      )
+                    })}
+                    <Button
+                      size="small"
+                      color="secondary"
+                      variant="contained"
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        if (editState.index !== i) {
+                          setEditState({ index: editState.index - 1 })
+                        } else {
+                          setEditState({ index: -1 })
+                        }
+                        handleDeleteOrders(i)
+                      }}
+                    >
+                      Remove Order
+                    </Button>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            ))}
+          </Card>
           <Typography>Total:${totalPrice()}</Typography>
+          <Button
+            size="small"
+            color="secondary"
+            variant="contained"
+            onClick={() => handleCreateOrders()}
+          >
+            Checkout
+          </Button>
         </Grid>
       </Grid>
-    </>
+    </div>
   )
 }
 

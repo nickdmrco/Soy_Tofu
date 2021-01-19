@@ -4,9 +4,11 @@ import Menu from './pages/Menu'
 import FoodAPI from './utils/FoodAPI'
 import CatagoryAPI from './utils/CatagoryAPI'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import OrdersAPI from './utils/OrdersAPI'
 
 const { getFoods } = FoodAPI
 const { getCatagories } = CatagoryAPI
+const { createOrders} = OrdersAPI
 
 const App = () => {
   const [cartState, setCartState] = useState({
@@ -17,7 +19,9 @@ const App = () => {
   })
 
   cartState.handleAddOrder = (order) => {
+    order = JSON.parse(JSON.stringify(order))
     let orders = cartState.orders
+    order.index = orders.length
     orders.push(order)
     setCartState({
       ...cartState,
@@ -25,9 +29,13 @@ const App = () => {
     })
   }
 
+  cartState.handleCreateOrders = () =>{
+    createOrders(cartState.orders)
+  }
+
   cartState.handleUpdateOrders = (index, order) => {
     let updatedOrders = cartState.orders
-    updatedOrders[index] = order
+    updatedOrders[index] = JSON.parse(JSON.stringify(order))
     setCartState({ ...cartState, orders: updatedOrders })
   }
 
