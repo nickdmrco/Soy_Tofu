@@ -70,13 +70,13 @@ function ResponsiveDrawer() {
         <ListItemLink href="/">
           <ListItemText primary="Home" />
         </ListItemLink>
-        <ListItemLink href="#about">
+        <ListItemLink href="/">
           <ListItemText primary="About" />
         </ListItemLink>
-        <ListItemLink href="#menu">
+        <ListItemLink href="/">
           <ListItemText primary="Menu" />
         </ListItemLink>
-        <ListItemLink href="#contact">
+        <ListItemLink href="/">
           <ListItemText primary="Contact" />
         </ListItemLink>
       </List>

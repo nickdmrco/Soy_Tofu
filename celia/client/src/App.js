@@ -12,10 +12,10 @@ const App = () => {
       <a name="about"></a>
       <About></About>
 
-      <a name="menu"></a>
+      {/* <a name="menu"></a> */}
       {/* menu component goes here */}
 
-      <a name="contact"></a>
+      {/* <a name="contact"></a> */}
       {/* contact component goes here */}
       
       <Footer></Footer>
