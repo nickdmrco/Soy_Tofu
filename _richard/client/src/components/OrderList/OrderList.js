@@ -4,7 +4,6 @@ import OrderCard from './OrderCard'
 import numberToMoney from '../../utils/lib/numberToMoney'
 import {
   Card,
-  CardActionArea,
   CardContent,
   Typography,
 } from '@material-ui/core'

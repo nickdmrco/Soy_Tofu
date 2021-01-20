@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
 
 const MenuNav = () => {
   const {
-    food,
     catagory,
     navFood,
     editFood,
