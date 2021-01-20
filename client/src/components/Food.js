@@ -1,7 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Footer from './Footer'
-
+import ContactInfo from './ContactInfo'
+import PaymentForm from './PaymentForm'
+import ReviewForm from './ReviewForm'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -19,7 +21,11 @@ const Food = () => {
 
   return (
     <div className={classes.root}>
-  
+
+      <PaymentForm></PaymentForm>
+      <ReviewForm></ReviewForm>
+      <ContactInfo></ContactInfo>
+
       <Footer></Footer>
     </div>
   )
