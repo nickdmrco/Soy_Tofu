@@ -79,13 +79,19 @@ const OrderForm = () => {
             onChange={(event) => handleOrderChoiceChange(event, i)}
             style={{ display: 'flex' }}
           >
-            {option.choices.map((choice, j) => (
-              <FormControlLabel
-                value={j}
-                control={<Radio style={{ width: 'auto' }} />}
-                label={`${choice.name} + $${numberToMoney(choice.price)}`}
-              />
-            ))}
+            {option.choices.map((choice, j) => {
+              let price = ''
+              if(choice.price > 0){
+                price = ` + $${numberToMoney(choice.price)}`
+              }
+              return (
+                <FormControlLabel
+                  value={j}
+                  control={<Radio style={{ width: 'auto' }} />}
+                  label={`${choice.name}${price}`}
+                />
+              )
+            })}
           </RadioGroup>
         </FormControl>
       )
