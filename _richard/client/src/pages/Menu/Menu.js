@@ -93,12 +93,6 @@ const Menu = () => {
     highestPrice: 0,
   })
 
-  const emptyOrder = {
-    foodId: '',
-    options: [],
-    total: 0,
-  }
-
   const [orderState, setOrderState] = useState({
     foodId: '',
     options: [
