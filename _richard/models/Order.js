@@ -1,7 +1,7 @@
 const { model, Schema } = require('mongoose')
 
 module.exports = model(
-  'CustomerOrder',
+  'Order',
   new Schema({
     email: String,
     firstName: String,
