@@ -1,10 +1,18 @@
 import { useState, useEffect } from 'react'
 import CartContext from './utils/CartContext'
-import Menu from './pages/Menu'
 import FoodAPI from './utils/FoodAPI'
 import CatagoryAPI from './utils/CatagoryAPI'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import OrdersAPI from './utils/OrdersAPI'
+import Menu from './pages/Menu'
+import Landing from './pages/Landing'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import PaymentForm from './components/PaymentForm'
+import ReviewForm from './components/ReviewForm'
+import Privacy from './pages/PrivacyP'
+import Navbar from './components/Navbar'
 
 const { getFoods } = FoodAPI
 const { getCatagories } = CatagoryAPI
@@ -189,11 +197,53 @@ const App = () => {
   return (
     <Router>
       <CartContext.Provider value={cartState}>
+        <Navbar />
         <Switch>
           <Route exact path="/">
+            <Landing />
+          </Route>
+
+          {/* HOME PAGE */}
+
+          <Route path="/home">
+            <Home />
+          </Route>
+
+          {/* ABOUT US  */}
+
+          <Route path="/about">
+            <About />
+          </Route>
+
+          {/* CONTACT US */}
+
+          <Route path="/contact">
+            <Contact />
+          </Route>
+
+          {/* PAYMENT */}
+
+          <Route path="/payment">
+            <PaymentForm />
+          </Route>
+
+          {/* REVIEW */}
+
+          <Route path="/review">
+            <ReviewForm />
+          </Route>
+
+          {/* MENU */}
+
+          <Route path="/menu">
             <Menu />
           </Route>
-          <Route path="/saved"></Route>
+
+          {/* PRIVACY POLICY */}
+
+          <Route path="/privacy">
+            <Privacy />
+          </Route>
         </Switch>
       </CartContext.Provider>
     </Router>
