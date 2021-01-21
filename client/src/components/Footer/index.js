@@ -1,13 +1,14 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid'
 
 function Copyright() {
+  const classes = useStyles()
   return (
-    <Typography variant="body2" color="textSecondary">
+    <Typography variant="body2" color="textSecondary" align="center" className={classes.copyright}>
       {'Copyright © '}
       <Link color="inherit" href="/privacy">
         Sayaka Japanese Restaurant
@@ -24,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   //   flexDirection: 'column',
   //   minHeight: '100vh',
   // },
+  copyright: {
+    color: 'grey'
+  },
   main: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(2),
@@ -31,9 +35,15 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     padding: theme.spacing(3, 2),
     marginTop: 'auto',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    // backgroundColor:
+      // theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
+    color: 'white',
   },
+  link: {
+    color: 'white',
+    textDecoration: 'none',
+  }
 }));
 
 export default function StickyFooter() {
@@ -45,7 +55,7 @@ export default function StickyFooter() {
         <Container maxWidth="sm">
           <Grid container spacing={1}>
             <Grid item xs={4}>
-              <Typography align="center">Hours</Typography>
+              <Typography className={classes.link} align="center">Hours</Typography>
               <p align="center">
                 Mon - Sat:
                 11am-8:30pm

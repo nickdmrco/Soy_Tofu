@@ -27,7 +27,8 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    backgroundColor: '#212121',
+    // backgroundColor: '#30362F',
+    background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
     color: 'white'
   },
   menuButton: {
@@ -39,7 +40,8 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: '#212121',
+    // backgroundColor: '#30362F',
+    background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
     color: 'white'
   },
   content: {
@@ -67,9 +69,6 @@ function ResponsiveDrawer() {
   const drawer = (
     <div>
       <List>
-        {/* <ListItemLink href="/home">
-          <ListItemText primary="Home" />
-        </ListItemLink> */}
         <ListItemLink href="/menu">
           <ListItemText primary="Menu" />
         </ListItemLink>
@@ -78,6 +77,9 @@ function ResponsiveDrawer() {
         </ListItemLink>
         <ListItemLink href="/about">
           <ListItemText primary="About" />
+        </ListItemLink>
+        <ListItemLink href="/checkout">
+          <ListItemText primary="Checkout" />
         </ListItemLink>
       </List>
     </div>
