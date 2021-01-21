@@ -1,14 +1,13 @@
 import React from 'react';
 // import Menu from './pages/Menu'
 import Landing from './pages/Landing'
-import PaymentForm from './components/PaymentForm'
 import ReviewForm from './components/ReviewForm'
 import Navbar from './components/Navbar'
-import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Menu from './pages/Menu'
 import Privacy from './pages/PrivacyP'
+import Checkout from './pages/Checkout'
 import {
   BrowserRouter as Router,
   Route,
@@ -31,7 +30,7 @@ const App = () => {
 {/* HOME PAGE */}
 
           <Route path="/home">
-            <Munu/>
+            <Menu/>
           </Route>
 
 {/* ABOUT US  */}
