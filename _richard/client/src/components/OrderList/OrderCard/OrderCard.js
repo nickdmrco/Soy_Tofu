@@ -2,15 +2,30 @@ import { useContext } from 'react'
 import CartContext from '../../../utils/CartContext'
 import numberToMoney from '../../../utils/lib/numberToMoney'
 import {
+  Button,
   Card,
   CardActionArea,
   CardContent,
   Typography,
 } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    width: '100%',
+  },
+}))
 
 const OrderCard = (props) => {
   const { index } = props
-  const { orders, foodsById, handleSelectOrder } = useContext(CartContext)
+  const {
+    orders,
+    foodsById,
+    handleSelectOrder,
+    handleDeleteOrder,
+  } = useContext(CartContext)
+
+  const classes = useStyles()
 
   const renderChoices = () => {
     return orders[index].options.map((option, i) => {
@@ -37,6 +52,17 @@ const OrderCard = (props) => {
             orders[index].total,
           )}`}</Typography>
           {renderChoices()}
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={(event) => {
+              event.stopPropagation()
+              handleDeleteOrder(index)
+            }}
+            className={classes.button}
+          >
+            Remove
+          </Button>
         </CardContent>
       </CardActionArea>
     </Card>
