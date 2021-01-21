@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles} from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Stepper from '@material-ui/core/Stepper'
 import Step from '@material-ui/core/Step'
@@ -81,13 +81,15 @@ const Checkout = () => {
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
+
           <Stepper activeStep={activeStep} className={classes.stepper}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
@@ -109,8 +111,7 @@ const Checkout = () => {
                       </Button>
                     )}
                     <Button
-                      variant="contained"
-                      color="primary"
+                      variant="outlined"
                       onClick={handleNext}
                       className={classes.button}
                     >

@@ -10,7 +10,7 @@ export default function ContactInfo() {
         Contact Info
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <TextField
             required
             id="firstName"
@@ -20,7 +20,7 @@ export default function ContactInfo() {
             autoComplete="given-name"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <TextField
             required
             id="lastName"
@@ -30,7 +30,7 @@ export default function ContactInfo() {
             autoComplete="family-name"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <TextField
             required
             id="email"
@@ -40,7 +40,7 @@ export default function ContactInfo() {
             autoComplete="email"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <TextField
             required
             id="phone"
