@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import ContactInfo from '../../components/ContactInfo'
 import PaymentForm from '../../components/PaymentForm'
 import ReviewForm from '../../components/ReviewForm'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 
 const useStyles = makeStyles((theme) => ({
  appBar: {
@@ -75,8 +77,9 @@ const Checkout = () => {
  }
 
  return (
-  <React.Fragment>
+   <React.Fragment>
    <main className={classes.layout}>
+    <Navbar/>
     <Paper className={classes.paper}>
      <Typography component="h1" variant="h4" align="center">
       Checkout
@@ -97,7 +100,7 @@ const Checkout = () => {
          Thank you for your order.
                 </Typography>
         <Typography variant="subtitle1">
-         Your order number is ###. We have emailed your order confirmation, and will
+         Your order number is #5234. We have emailed your order confirmation, and will
          send you an update when your order is ready for pickup.
                 </Typography>
        </React.Fragment>
@@ -123,6 +126,7 @@ const Checkout = () => {
      </React.Fragment>
     </Paper>
    </main>
+    <Footer/>
   </React.Fragment>
  );
 }
