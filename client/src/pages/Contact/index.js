@@ -1,15 +1,15 @@
 import React from 'react';
 import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
-import MenuItemCard from '../../components/MenuItemCard'
-const Menu = () => {
+
+const Contact = () => {
  return (
   <>
    <Navbar />
-   <MenuItemCard />
+    THIS IS THE CONTACT PAGE.
    <Footer />
   </>
  )
 }
 
-export default Menu
+export default Contact
