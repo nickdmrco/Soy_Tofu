@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { AppBar, Button, Toolbar } from '@material-ui/core'
 import CartContext from '../../utils/CartContext'
@@ -12,36 +12,27 @@ const MenuNav = () => {
   const {
     catagory,
     navFood,
-    editFood,
     handleStopEditOrder,
     handleChangeCatagory,
     handleSelectFood,
   } = useContext(CartContext)
   const classes = useStyles()
+
   const renderCatagory = () => {
     if (catagory !== '') {
       return (
-        <Button color="inherit" onClick={() => handleChangeCatagory(-1)}>
+        <Button color="inherit" onClick={() => handleSelectFood(-1)}>
           {catagory.name}
         </Button>
       )
     }
   }
+
   const renderFood = () => {
     if (navFood !== '') {
       return (
-        <Button color="inherit" onClick={() => handleSelectFood(-1)}>
-          {navFood}
-        </Button>
-      )
-    }
-  }
-
-  const renderReturn = () => {
-    if (editFood !== '') {
-      return (
         <Button color="inherit" onClick={() => handleStopEditOrder()}>
-          Return
+          {navFood}
         </Button>
       )
     }
@@ -51,9 +42,11 @@ const MenuNav = () => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+          <Button color="inherit" onClick={() => handleChangeCatagory(-1)}>
+            Catagory
+          </Button>
           {renderCatagory()}
           {renderFood()}
-          {renderReturn()}
         </Toolbar>
       </AppBar>
     </div>
