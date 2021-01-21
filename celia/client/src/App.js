@@ -1,14 +1,13 @@
 import Navbar from './components/Navbar'
-import About from './About'
 import Footer from './components/Footer'
-
+import Landing from './Landing.js'
 
 
 const App = () => {
   return (
     <>
       <Navbar></Navbar>
-      <About></About>
+      <Landing></Landing>
       <Footer></Footer>
     </>
   )
