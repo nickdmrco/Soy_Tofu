@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function MenuItemTile(props) {
-  const { key, name, title, lowest, highest, click } = props
+  const { key, name, image, title, lowest, highest, click } = props
   const renderLowestHighestPrice = () => {
     if (lowest === undefined || highest === undefined) {
       return
@@ -56,11 +56,7 @@ export default function MenuItemTile(props) {
         onClick={(event) => click(event)}
         cols={1}
       >
-        <img
-          className={classes.img}
-          src={`https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/1200px-RedDot_Burger.jpg`}
-          alt={title}
-        />
+        <img className={classes.img} src={image} alt={title} />
         <GridListTileBar
           title={name}
           subtitle={<span>{`${renderLowestHighestPrice()}`}</span>}

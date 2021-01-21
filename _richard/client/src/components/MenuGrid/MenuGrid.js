@@ -1,4 +1,4 @@
-import { useContext} from 'react'
+import { useContext } from 'react'
 import { Grid, GridList } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import CartContext from '../../utils/CartContext'
@@ -70,7 +70,7 @@ const MenuGrid = () => {
             <MenuItemTile
               key={i}
               name={food.name}
-              image={food.iamge}
+              image={food.image}
               title={food.name}
               lowest={food.lowestPrice}
               highest={food.highestPrice}
