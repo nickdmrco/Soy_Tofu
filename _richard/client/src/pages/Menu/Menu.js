@@ -5,6 +5,7 @@ import MenuGrid from '../../components/MenuGrid'
 import MenuNav from '../../components/MenuNav'
 import { Grid } from '@material-ui/core'
 import OrderList from '../../components/OrderList'
+import WindowSize from '../../hooks/WindowSize'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,27 +14,44 @@ const useStyles = makeStyles((theme) => ({
   control: {
     padding: theme.spacing(2),
   },
+  cart: {
+    display: 'block',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
 }))
 
 const Menu = () => {
   const classes = useStyles()
   const { catagory, handleChangeCatagory } = useContext(CartContext)
-  return (
-    <div>
+  const { width } = WindowSize()
+
+  const renderMenu = () => {
+    let menuCol = 8
+    let cartCol = 4
+    if (width < 600) {
+      menuCol = 12
+      cartCol = 0
+    }
+
+    return (
       <Grid container className={classes.root} spacing={2}>
-        <Grid item xs={8}>
+        <Grid item xs={menuCol}>
           <MenuNav
             catagory={catagory.name}
             click={() => handleChangeCatagory(-1)}
           />
           <MenuGrid />
         </Grid>
-        <Grid item xs={4}>
+        <Grid className={classes.cart} item xs={cartCol}>
           <OrderList />
         </Grid>
       </Grid>
-    </div>
-  )
+    )
+  }
+
+  return <div>{renderMenu()}</div>
 }
 
 export default Menu

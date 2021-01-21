@@ -1,14 +1,29 @@
-import { useContext, useState } from 'react'
-import { Grid } from '@material-ui/core'
+import { useContext} from 'react'
+import { Grid, GridList } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import CartContext from '../../utils/CartContext'
-import FoodCard from './FoodCard'
 import CatagoryCard from './CatagoryCard'
 import OrderForm from './OrderForm'
+import MenuItemTile from './MenuItemTile'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    justifyContent: 'center',
+  },
+  gridList: {
+    flexGrow: 1,
+    overflow: 'hidden',
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: 'translateZ(0)',
+  },
+  title: {
+    color: theme.palette.primary.light,
+  },
+  titleBar: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
   control: {
     padding: theme.spacing(2),
@@ -16,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const MenuGrid = () => {
-  const [spacing, setSpacing] = useState(2)
   const classes = useStyles()
   const {
     food,
@@ -24,7 +38,6 @@ const MenuGrid = () => {
     foodsByCatagory,
     catagory,
     catagories,
-    orderIndex,
     editFood,
     handleSelectFood,
     handleChangeCatagory,
@@ -51,10 +64,11 @@ const MenuGrid = () => {
       })
     }
     if (navFood === '') {
-      return foodsByCatagory.map((food, i) => {
-        return (
-          <Grid key={i} item>
-            <FoodCard
+      return (
+        <GridList className={classes.gridList}>
+          {foodsByCatagory.map((food, i) => (
+            <MenuItemTile
+              key={i}
               name={food.name}
               image={food.iamge}
               title={food.name}
@@ -62,19 +76,15 @@ const MenuGrid = () => {
               highest={food.highestPrice}
               click={() => handleSelectFood(food._id)}
             />
-          </Grid>
-        )
-      })
+          ))}
+        </GridList>
+      )
     }
     return <OrderForm />
   }
   return (
-    <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-          {renderMenu()}
-        </Grid>
-      </Grid>
+    <Grid container className={classes.root} xs={12}>
+      {renderMenu()}
     </Grid>
   )
 }

@@ -1,15 +1,19 @@
-import { useContext, useState } from 'react'
+import { useContext} from 'react'
 import CartContext from '../../utils/CartContext'
 import OrderCard from './OrderCard'
 import numberToMoney from '../../utils/lib/numberToMoney'
-import {
-  Card,
-  CardContent,
-  Typography,
-} from '@material-ui/core'
+import { Card, CardContent, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}))
 
 const OrderList = (props) => {
   const { orders } = useContext(CartContext)
+  const classes = useStyles()
 
   const renderTotal = () => {
     let price = 0
@@ -21,12 +25,14 @@ const OrderList = (props) => {
   }
 
   return (
-    <Card>
-      {orders.map((order, i) => (
-        <OrderCard index={i} />
-      ))}
+    <Card className={classes.root}>
       <Card>
         <CardContent>{renderTotal()}</CardContent>
+      </Card>
+      <Card>
+        {orders.map((order, i) => (
+          <OrderCard index={i} />
+        ))}
       </Card>
     </Card>
   )
