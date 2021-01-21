@@ -31,7 +31,7 @@ const App = () => {
 {/* HOME PAGE */}
 
           <Route path="/home">
-            <Home/>
+            <Munu/>
           </Route>
 
 {/* ABOUT US  */}
@@ -48,9 +48,9 @@ const App = () => {
 
 {/* PAYMENT */}
 
-          <Route path="/payment">
+          <Route path="/checkout">
           <Navbar/>
-            <PaymentForm />
+            <Checkout />
           </Route>
 
 {/* REVIEW */}
