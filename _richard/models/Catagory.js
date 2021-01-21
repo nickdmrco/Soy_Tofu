@@ -4,6 +4,5 @@ module.exports = model(
   'Catagory',
   new Schema({
     name: String,
-    image: String,
   }),
 )
