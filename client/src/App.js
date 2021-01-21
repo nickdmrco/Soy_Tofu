@@ -2,7 +2,6 @@ import React from 'react';
 // import Menu from './pages/Menu'
 import Landing from './pages/Landing'
 import ReviewForm from './components/ReviewForm'
-import Navbar from './components/Navbar'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Menu from './pages/Menu'
