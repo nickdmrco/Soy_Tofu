@@ -16,7 +16,9 @@ const Landing = () => {
   const classes = useStyles()
   return (
     <>
+      {/* add link/route here */}
       <div className={classes.root} onClick={event => window.location.href = 'pagelink'}>
+
         <CssBaseline />
         <Collapse></Collapse>
       </div>

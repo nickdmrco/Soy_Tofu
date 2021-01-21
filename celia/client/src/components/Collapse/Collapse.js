@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { IconButton, Collapse } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import {  Collapse } from '@material-ui/core'
+// import { IconButton } from '@material-ui/core'
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,12 +59,12 @@ const LandingHeader = () => {
             Welcome to <br />
             <span className={classes.colorText}>Soy Tofu</span>
             <br/>
-            <IconButton>
 
-              {/* handle page change here */}
+            {/* use later for scroll function ...add link/route to Landing.js instead */}
+            {/* <IconButton>
               <ExpandMoreIcon onClick={event => window.location.href = 'pagelink'} className={classes.arrow} />
+            </IconButton> */}
 
-            </IconButton>
           </h1>
             
         </div>
