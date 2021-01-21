@@ -122,6 +122,20 @@ const App = () => {
     })
   }
 
+  cartState.handleEditOrderAmountChange = (amount) => {
+    let order = cartState.editOrder
+    order.amount = parseInt(amount)
+    order.total = totalOrderPrice(order)
+    setCartState({ ...cartState, editOrder: order })
+  }
+
+  cartState.handleOrderAmountChange = (amount) => {
+    let order = cartState.order
+    order.amount = parseInt(amount)
+    order.total = totalOrderPrice(order)
+    setCartState({ ...cartState, order: order })
+  }
+
   cartState.handleOrderChoiceChange = (event, index) => {
     let value = parseInt(event.target.value)
     if (cartState.editFood === '') {
@@ -147,7 +161,7 @@ const App = () => {
     let order = JSON.parse(JSON.stringify(cartState.order))
     let orders = cartState.orders
     orders.push(order)
-    window.localStorage.setItem('orders', JSON.stringify(orders))
+    window.localStorage.setItem('soy_tofu_orders', JSON.stringify(orders))
     setCartState({
       ...cartState,
       orders: orders,
@@ -156,9 +170,23 @@ const App = () => {
 
   cartState.handleDeleteOrder = (index) => {
     let orders = cartState.orders
+    let editFood = cartState.editFood
+    let orderIndex = ''
+    if (cartState.orderIndex >= index) {
+      orderIndex = cartState.orderIndex - 1
+      if (orderIndex < 0) {
+        editFood = ''
+        orderIndex = ''
+      }
+    }
     orders.splice(index, 1)
-    window.localStorage.setItem('orders', JSON.stringify(orders))
-    setCartState({ ...cartState, orders: orders })
+    window.localStorage.setItem('soy_tofu_orders', JSON.stringify(orders))
+    setCartState({
+      ...cartState,
+      orders: orders,
+      editFood: editFood,
+      orderIndex: orderIndex,
+    })
   }
 
   cartState.handleUpdateOrder = () => {
@@ -166,7 +194,7 @@ const App = () => {
     orders[cartState.orderIndex] = JSON.parse(
       JSON.stringify(cartState.editOrder),
     )
-    window.localStorage.setItem('orders', JSON.stringify(orders))
+    window.localStorage.setItem('soy_tofu_orders', JSON.stringify(orders))
     setCartState({ ...cartState, orders: orders })
   }
 
@@ -175,7 +203,7 @@ const App = () => {
   }
 
   cartState.handleEmptyOrders = () => {
-    window.localStorage.setItem('orders', '[]')
+    window.localStorage.setItem('soy_tofu_orders', '[]')
     setCartState({ ...cartState, orders: [] })
   }
 
@@ -187,7 +215,7 @@ const App = () => {
           foods.forEach((food) => {
             foodsObj[food._id] = food
           })
-          let storedOrders = JSON.parse(window.localStorage.getItem('orders'))
+          let storedOrders = JSON.parse(window.localStorage.getItem('soy_tofu_orders'))
           if (storedOrders === null) {
             storedOrders = []
           }

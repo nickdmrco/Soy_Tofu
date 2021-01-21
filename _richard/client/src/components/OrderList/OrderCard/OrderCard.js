@@ -51,6 +51,7 @@ const OrderCard = (props) => {
           <Typography>{`Total: $${numberToMoney(
             orders[index].total,
           )}`}</Typography>
+          <Typography>{`Quantity: ${orders[index].amount}`}</Typography>
           {renderChoices()}
           <Button
             color="secondary"
