@@ -67,17 +67,17 @@ function ResponsiveDrawer() {
   const drawer = (
     <div>
       <List>
-        <ListItemLink href="/home">
+        {/* <ListItemLink href="/home">
           <ListItemText primary="Home" />
-        </ListItemLink>
-        <ListItemLink href="/about">
-          <ListItemText primary="About" />
-        </ListItemLink>
+        </ListItemLink> */}
         <ListItemLink href="/menu">
           <ListItemText primary="Menu" />
         </ListItemLink>
         <ListItemLink href="/contact">
           <ListItemText primary="Contact" />
+        </ListItemLink>
+        <ListItemLink href="/about">
+          <ListItemText primary="About" />
         </ListItemLink>
       </List>
     </div>
