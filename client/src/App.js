@@ -48,7 +48,7 @@ const App = () => {
 {/* PAYMENT */}
 
           <Route path="/checkout">
-          <Navbar/>
+          
             <Checkout />
           </Route>
 
