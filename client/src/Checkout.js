@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(6),
       padding: theme.spacing(3),
     },
+    backgroundColor: 'rgb(245, 242, 230)'
   },
   stepper: {
     padding: theme.spacing(3, 0, 5),
@@ -41,10 +42,13 @@ const useStyles = makeStyles((theme) => ({
   buttons: {
     display: 'flex',
     justifyContent: 'flex-end',
+    backgroundColor: 'rgb(245, 242, 230)'
+
   },
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
+    backgroundColor: 'rgb(245, 242, 230)'
   },
 }))
 

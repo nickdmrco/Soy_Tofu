@@ -10,7 +10,8 @@ import {
 const useStyles = makeStyles((theme) => ({
  card: {
   backgroundColor: 'grey',
-  color: 'white'
+  color: 'white',
+  margin:'0.2rem'
  }
 }))
 

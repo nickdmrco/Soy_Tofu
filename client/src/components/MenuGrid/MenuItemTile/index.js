@@ -15,11 +15,11 @@ const useStyles = makeStyles((theme) => ({
   [theme.breakpoints.down('xs')]: {
    width: '100%',
   },
-  backgroundColor: 'black'
+  backgroundColor: 'grey'
  },
- tile: {
-  padding: '0.2rem',
- },
+ // tile: {
+ //  marginTop: '0.2rem',
+ // },
  title: {
   color: theme.palette.primary.light,
  },

@@ -25,7 +25,11 @@ export default class MyForm extends React.Component {
      onSubmit={this.submitForm}
      action="https://formspree.io/f/mgepdygv"
      method="POST"
+     style={{
+      color: 'white'
+     }}
     >
+     
      <h1>Thank you for reaching out!</h1>
      <label>Email:</label>
      <p><input type="email" name="email" /></p>

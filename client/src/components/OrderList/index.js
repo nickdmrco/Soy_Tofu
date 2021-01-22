@@ -7,8 +7,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
  root: {
-  color: 0xFD746C,
-  backgroundColor: 'rgb(245, 242, 230)',
+  color: 'white',
+  backgroundColor: 'grey',
  },
 
 }))
