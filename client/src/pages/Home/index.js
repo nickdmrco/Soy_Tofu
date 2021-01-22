@@ -8,7 +8,6 @@ const Home = () => {
     <>
     <Navbar/>
       <HomeContent/>
-      
     <Footer/>
     </>
   )

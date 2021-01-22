@@ -1,3 +1,5 @@
 module.exports = {
-  Food: require('./Food')
+  Food: require('./Food'),
+  Catagory: require('./Catagory'),
+  Order: require('./Order'),
 }
