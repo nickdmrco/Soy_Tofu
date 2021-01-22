@@ -2,7 +2,7 @@
 
 https://soy-tofu-ca.herokuapp.com/
 
-Have you ever
+A fully functioning restaurant page with admin user authentication and online ordering.
 
 # Technologies Used
 
