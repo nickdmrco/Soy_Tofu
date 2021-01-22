@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   [theme.breakpoints.down('xs')]: {
    width: '100%',
   },
+  backgroundColor: 'black'
  },
  tile: {
   padding: '0.2rem',

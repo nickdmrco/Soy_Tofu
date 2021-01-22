@@ -7,8 +7,10 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
  root: {
-  flexGrow: 1,
+  color: 0xFD746C,
+  backgroundColor: 'rgb(245, 242, 230)',
  },
+
 }))
 
 const OrderList = (props) => {
@@ -26,7 +28,7 @@ const OrderList = (props) => {
 
  return (
   <Card className={classes.root}>
-   <Card>
+   <Card className={classes.root}>
     <CardContent>{renderTotal()}</CardContent>
    </Card>
    <Card>

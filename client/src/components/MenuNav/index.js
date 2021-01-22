@@ -6,6 +6,10 @@ const useStyles = makeStyles((theme) => ({
  root: {
   flexGrow: 1,
  },
+
+ navColor: {
+  backgroundColor: 'grey',
+ }
 }))
 
 const MenuNav = () => {
@@ -40,10 +44,10 @@ const MenuNav = () => {
 
  return (
   <div className={classes.root}>
-   <AppBar position="static">
-    <Toolbar>
+   <AppBar position="static" className={classes.navColor}>
+    <Toolbar >
      <Button color="inherit" onClick={() => handleChangeCatagory(-1)}>
-      Catagory
+      Category
           </Button>
      {renderCatagory()}
      {renderFood()}

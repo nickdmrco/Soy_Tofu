@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import OrdersAPI from './utils/OrderAPI'
 import Menu from './pages/Menu'
 import Landing from './pages/Landing'
-import Home from './pages/Home'
+// import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import PaymentForm from './components/PaymentForm'
+// import PaymentForm from './components/PaymentForm'
 import ReviewForm from './components/ReviewForm'
 import Privacy from './pages/PrivacyP'
 import Checkout from './pages/Checkout'
@@ -229,7 +229,7 @@ const App = () => {
         })
       })
       .catch((err) => console.error(err))
-  }, [])
+  })
 
   return (
     <Router>
@@ -244,9 +244,9 @@ const App = () => {
 
           {/* HOME PAGE */}
 
-          <Route path="/home">
+          {/* <Route path="/home">
             <Menu />
-          </Route>
+          </Route> */}
 
           {/* ABOUT US  */}
 

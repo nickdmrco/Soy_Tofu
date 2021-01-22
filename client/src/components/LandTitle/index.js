@@ -88,7 +88,7 @@ const Landing = () => {
  return (
   <>
    {/* add link/route here */}
-   <div className={classes.root} onClick={event => window.location.href = '/home'}>
+   <div className={classes.root} onClick={event => window.location.href = '/menu'}>
 
     <CssBaseline />
     <Text></Text>

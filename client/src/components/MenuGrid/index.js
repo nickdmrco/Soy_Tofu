@@ -9,7 +9,7 @@ import MenuItemTile from './MenuItemTile'
 const useStyles = makeStyles((theme) => ({
  root: {
   flexGrow: 1,
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: 'rgb(245, 242, 230)',
   justifyContent: 'center',
  },
  gridList: {
@@ -24,10 +24,15 @@ const useStyles = makeStyles((theme) => ({
  titleBar: {
   background:
    'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  // backgroundColor: "black"
  },
  control: {
   padding: theme.spacing(2),
  },
+ tileBack: {
+  backgroundColor: 'rgb(245, 242, 230)'
+ },
+
 }))
 
 const MenuGrid = () => {

@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import numberToMoney from '../../../utils/lib/numberToMoney'
 import CartContext from '../../../utils/CartContext'
+import { makeStyles } from '@material-ui/core/styles'
 import {
  Button,
  Card,
@@ -15,6 +16,12 @@ import {
  TextField,
  Typography,
 } from '@material-ui/core'
+
+const useStyles = makeStyles((theme) => ({
+ card: {
+  backgroundColor: 'rgb(245, 242, 230)',
+ },
+}))
 
 const OrderForm = () => {
  const {
@@ -81,10 +88,12 @@ const OrderForm = () => {
   }
  }
 
+ const classes = useStyles()
+
  const renderForm = () => {
   if (editFood === '') {
    return (
-    <Card>
+    <Card className={classes.card}>
      <CardHeader title={food.name} subtitle={food.catagory} />
      <Typography>Total: ${numberToMoney(order.total)}</Typography>
      <CardMedia />
