@@ -24,8 +24,13 @@ Have you ever
 
 # Screenshots
 
- ![image](<blockquote class="imgur-embed-pub" lang="en" data-id="5MeDX9P"><a href="https://imgur.com/5MeDX9P">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>)
-
+ ![image](https://i.imgur.com/5MeDX9P.png)
+ ![image](https://i.imgur.com/3nkvCU1.png)
+ ![image](https://i.imgur.com/dOJTmJI.png)
+ ![image](https://i.imgur.com/aPxOQLP.png)
+ ![image](https://i.imgur.com/hFLlYfL.png)
+ ![image](https://i.imgur.com/K6LOIz4.png)
+ 
 # Contributers
 
 - [Celia Noriega](https://github.com/CeliaNoriega)
