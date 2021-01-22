@@ -1,29 +1,100 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import React, { useEffect, useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import dumplings from '../../img/dumplings.jpg'
+import { CssBaseline } from '@material-ui/core'
+import { Collapse } from '@material-ui/core'
+
+// import { IconButton } from '@material-ui/core'
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles((theme) => ({
  root: {
-  flexGrow: 1,
+  minHeight: '100vh',
+  backgroundImage: `url(${dumplings})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
  },
- paper: {
-  padding: theme.spacing(2),
+ txtroot: {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100vh',
+ },
+ appbar: {
+  background: 'none',
+ },
+ appbarWrapper: {
+  width: '80%',
+  margin: '0 auto',
+ },
+ appbarTitle: {
+  flexGrow: '1',
+ },
+ icon: {
+  color: '#fff',
+  fontSize: '2rem',
+ },
+ colorText: {
+  color: '#424242',
+  fontSize: '4.5rem',
+ },
+ container: {
   textAlign: 'center',
-  color: theme.palette.text.secondary,
  },
-}));
+ title: {
+  color: '#fff',
+  fontSize: '4rem',
+ },
+ arrow: {
+  color: '#424242',
+  fontSize: '4.5rem',
+ },
+}))
 
-export default function CenteredGrid() {
- const classes = useStyles();
-
+const Text = () => {
+ const classes = useStyles()
+ const [checked, setChecked] = useState(false)
+ useEffect(() => {
+  setChecked(true)
+ }, [])
  return (
-  <div className={classes.root}>
-   <Grid container spacing={3}>
-    <Grid item xs={12}>
-     <Paper className={classes.paper}>Welcome to Soy Tofu</Paper>
-    </Grid>
-   </Grid>
+  <div className={classes.txtroot} id="header">
+   <Collapse
+    in={checked}
+    {...(checked ? { timeout: 2000 } : {})}
+    collapsedHeight={50}
+   >
+    <div className={classes.container}>
+     <h1 className={classes.title}>
+      Welcome to <br />
+      <span className={classes.colorText}>Soy Tofu</span>
+      <br />
+
+      {/* use later for scroll function ...add link/route in Landing()*/}
+      {/* <IconButton>
+              <ExpandMoreIcon onClick={event => window.location.href = 'pagelink'} className={classes.arrow} />
+            </IconButton> */}
+
+     </h1>
+
+    </div>
+   </Collapse>
   </div>
- );
+ )
 }
+
+const Landing = () => {
+ const classes = useStyles()
+ return (
+  <>
+   {/* add link/route here */}
+   <div className={classes.root} onClick={event => window.location.href = '/menu'}>
+
+    <CssBaseline />
+    <Text></Text>
+   </div>
+  </>
+ )
+}
+
+export default Landing
