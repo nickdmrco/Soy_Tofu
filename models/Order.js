@@ -10,5 +10,6 @@ module.exports = model(
     orderNumber: Number,
     state: Number,
     orders: [],
+    total: Number,
   }),
 )

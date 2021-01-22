@@ -19,6 +19,15 @@ const randInt = (max) => {
   return Math.floor(Math.random() * max)
 }
 
+const getTotal = (orders) => {
+  let price = 0
+  orders.forEach((order) => {
+    price += order.total * 100
+  })
+  price /= 100
+  return price
+}
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
@@ -71,6 +80,7 @@ const Checkout = () => {
     cardExpire: '',
     cardCVV: '',
     zip: '',
+    total: '',
   })
 
   function getStepContent(step) {
@@ -116,6 +126,7 @@ const Checkout = () => {
   }
 
   const submitForm = () => {
+    let orders = JSON.parse(localStorage.getItem('soy_tofu_orders'))
     let order = {
       firstName: checkoutState.firstName,
       lastName: checkoutState.lastName,
@@ -123,7 +134,8 @@ const Checkout = () => {
       phone: checkoutState.phone,
       orderNumber: randInt(9999),
       state: 0,
-      orders: JSON.parse(localStorage.getItem('soy_tofu_orders')),
+      orders: orders,
+      total: getTotal(orders),
     }
     axios
       .post('/api/orders', order)
