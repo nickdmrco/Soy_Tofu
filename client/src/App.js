@@ -229,7 +229,7 @@ const App = () => {
         })
       })
       .catch((err) => console.error(err))
-  })
+  }, [])
 
   return (
     <Router>

@@ -9,7 +9,7 @@ import MenuItemTile from './MenuItemTile'
 const useStyles = makeStyles((theme) => ({
  root: {
   flexGrow: 1,
-  backgroundColor: 'rgb(245, 242, 230)',
+  backgroundColor: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
   justifyContent: 'center',
  },
  gridList: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   padding: theme.spacing(2),
  },
  tileBack: {
-  backgroundColor: 'rgb(245, 242, 230)'
+  backgroundColor: 'grey'
  },
 
 }))
