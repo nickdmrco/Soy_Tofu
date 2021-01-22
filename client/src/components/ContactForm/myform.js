@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
 
@@ -25,19 +23,19 @@ export default class MyForm extends React.Component {
     return (
       <Card>
         <CardContent>
-      <form
-        onSubmit={this.submitForm}
-        action="https://formspree.io/f/mgepdygv"
-        method="POST"
-      >
-
-        <label>Email:</label>
-        <input type="email" name="email" />
-        <label>Message:</label>
-        <input type="text" name="message" />
-        {status === "SUCCESS" ? <p>Thank you for reaching out! Your email has been submitted and we will be in touch with you shortly.</p> : <button>Submit</button>}
-        {status === "ERROR" && <p>Ooops! There was an error.</p>}
-      </form>
+          <form
+            onSubmit={this.submitForm}
+            action="https://formspree.io/f/mgepdygv"
+            method="POST"
+          >
+            <h1>Thank you for reaching out!</h1>
+            <label>Email:</label>
+            <p><input type="email" name="email" /></p>
+            <label>Message:</label>
+            <p><input type="text" name="message" /></p>
+            <p>{status === "SUCCESS" ? <p>Your email has been submitted and we will be in touch with you shortly.</p> : <button>Submit</button>}
+              {status === "ERROR" && <p>Ooops! There was an error.</p>}</p>
+          </form>
         </CardContent>
       </Card>
     );
