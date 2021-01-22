@@ -8,7 +8,6 @@ const Contact = () => {
   <>
    <Navbar />
    <MyForm />
-    THIS IS THE CONTACT PAGE.
    <Footer />
   </>
  )
