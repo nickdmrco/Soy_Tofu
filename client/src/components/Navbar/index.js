@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
     backgroundColor: '#897C80',
     // background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
-    color: '#000000'
+    color: '#ffffff'
   },
   content: {
     flexGrow: 1,
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   closeMenuButton: {
     marginRight: 'auto',
     marginLeft: 0,
-    color: '#000000'
+    color: '#ffffff'
   },
 }));
 
