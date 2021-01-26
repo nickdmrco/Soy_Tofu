@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   fontSize: '2rem',
  },
  colorText: {
-  color: '#424242',
+   color: '#384F02',
   fontSize: '4.5rem',
  },
  container: {
