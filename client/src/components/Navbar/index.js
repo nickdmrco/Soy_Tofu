@@ -44,9 +44,9 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: '#2A3C02',
+    backgroundColor: '#897C80',
     // background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
-    color: '#ffffff'
+    color: '#000000'
   },
   content: {
     flexGrow: 1,
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   closeMenuButton: {
     marginRight: 'auto',
     marginLeft: 0,
-    color: '#ffffff'
+    color: '#000000'
   },
 }));
 
