@@ -36,7 +36,7 @@ const AboutBox = () => {
  return (
   <div className={classes.body}>
    <Parallax bgImage={full} strength={400}>
-    <div style={{ height: 650 }}>
+    <div style={{ height: 800 }}>
      <div className={classes.inside + ' blue'}>
       <Typography className={classes.typography} variant="h3" align="center">
        About Us
