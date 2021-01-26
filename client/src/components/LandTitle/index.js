@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import dumplings from '../../img/dumplings.jpg'
 import { CssBaseline } from '@material-ui/core'
 import { Collapse } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
 
 // import { IconButton } from '@material-ui/core'
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -49,6 +50,10 @@ const useStyles = makeStyles((theme) => ({
   color: '#424242',
   fontSize: '4.5rem',
  },
+ start: {
+   backgroundColor: '#512110',
+   color: 'white'
+ },
 }))
 
 const Text = () => {
@@ -70,6 +75,8 @@ const Text = () => {
       <span className={classes.colorText}>Soy Tofu</span>
       <br />
 
+           <Button variant="contained" onClick={event => window.location.href = '/menu'} className={classes.start}>Start your order here</Button>
+
       {/* use later for scroll function ...add link/route in Landing()*/}
       {/* <IconButton>
               <ExpandMoreIcon onClick={event => window.location.href = 'pagelink'} className={classes.arrow} />
@@ -88,7 +95,7 @@ const Landing = () => {
  return (
   <>
    {/* add link/route here */}
-   <div className={classes.root} onClick={event => window.location.href = '/menu'}>
+   <div className={classes.root} >
 
     <CssBaseline />
     <Text></Text>
