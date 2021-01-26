@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     padding: theme.spacing(3, 2),
-    background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
+    // background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
+    background: 'linear-gradient(45deg, #897C80 10%, #2B3C02 90%)',
     color: 'white',
     position: 'fixed',
     left: '0',
