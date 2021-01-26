@@ -12,9 +12,7 @@ import PaymentForm from '../../components/PaymentForm'
 import ReviewForm from '../../components/ReviewForm'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
-import OrderAPI from '../../utils/OrderAPI'
 
-const { createOrder } = OrderAPI
 const randInt = (max) => {
   return Math.floor(Math.random() * max)
 }

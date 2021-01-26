@@ -5,10 +5,71 @@ import TextField from '@material-ui/core/TextField'
 
 export default function PaymentForm(props) {
   const { cardName, cardNumber, cardExpire, cardCVV, zip, inputChange } = props
-  const handleNumberChange = (event) => {
+
+  const splice = (event, len) => {
+    if (len !== undefined && event.target.value.length > len) {
+      event.target.value = event.target.value.substring(0, len)
+    }
+  }
+
+  const handleNumberChange = (event, len) => {
     event.target.value = event.target.value.replace(/[^0-9]/g, '')
+    splice(event, len)
     inputChange(event)
   }
+
+  const handleCardInput = (event) => {
+    if (event.target.length < 1) {
+      inputChange(event)
+      return
+    }
+    event.target.value = event.target.value.replace(/[^0-9]/g, '')
+    splice(event, 16)
+    let number = cardNumber.replace(/[^0-9]/g, '').length
+    let value = event.target.value.length
+    let hyphons = 1
+    for (let i = 1; i < 4; i++) {
+      if (value > 4 * i) {
+        hyphons++
+      } else if (value % 4 === 0) {
+        if (number > 4 * i - 4 && number % 4 === 3) {
+          hyphons++
+        }
+      } else {
+        i = 4
+      }
+    }
+
+    for (let i = 1; i < hyphons; i++) {
+      event.target.value =
+        event.target.value.substring(0, 4 * i + (i - 1)) +
+        '-' +
+        event.target.value.substring(4 * i + (i - 1))
+    }
+    inputChange(event)
+  }
+
+  const handleExpirationChange = (event) => {
+    if (event.target.value.length < 1) {
+      inputChange(event)
+      return
+    }
+
+    event.target.value = event.target.value.replace(/[^0-9]/g, '')
+    let number = cardExpire.replace(/[^0-9]/g, '').length
+    splice(event, 4)
+    if (event.target.value.length > 2) {
+      event.target.value =
+        event.target.value.substring(0, 2) +
+        '/' +
+        event.target.value.substring(2)
+    } else if (number === 1) {
+      event.target.value += '/'
+    }
+
+    inputChange(event)
+  }
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -36,7 +97,7 @@ export default function PaymentForm(props) {
             fullWidth
             autoComplete="cc-number"
             value={cardNumber}
-            onChange={handleNumberChange}
+            onChange={handleCardInput}
           />
         </Grid>
         <Grid item xs={12} md={6} xl={12}>
@@ -48,7 +109,7 @@ export default function PaymentForm(props) {
             fullWidth
             autoComplete="cc-exp"
             value={cardExpire}
-            onChange={inputChange}
+            onChange={handleExpirationChange}
           />
         </Grid>
         <Grid item xs={12} md={6} xl={12}>
@@ -61,7 +122,7 @@ export default function PaymentForm(props) {
             fullWidth
             autoComplete="cc-csc"
             value={cardCVV}
-            onChange={handleNumberChange}
+            onChange={(event) => handleNumberChange(event, 3)}
           />
         </Grid>
         <Grid item xs={12} md={6} xl={12}>
