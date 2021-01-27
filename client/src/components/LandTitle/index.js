@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
  colorText: {
    color: '#384F02',
   fontSize: '4.5rem',
-    textShadow: '2px 2px 6px #000000'
+    textShadow: '2px 2px 6px #000000',
  },
  container: {
   textAlign: 'center',
@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
  },
  start: {
    backgroundColor: '#512110',
-   color: 'white'
+   color: 'white',
+    boxShadow: '1px 1px black'
  },
 }))
 
