@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import CartContext from '../../utils/CartContext'
 import MenuGrid from '../../components/MenuGrid'
@@ -14,9 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
   cart: {
     display: 'block',
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
-    },
   },
 }))
 
@@ -24,13 +21,32 @@ const Menu = () => {
   const classes = useStyles()
   const { catagory, handleChangeCatagory } = useContext(CartContext)
   const { width } = WindowSize()
+  const [menuState, setMenuState] = useState({
+    showCart: false,
+    showCartButton: false,
+  })
 
   const renderMenu = () => {
     let menuCol = 8
     let cartCol = 4
     if (width < 600) {
       menuCol = 12
-      cartCol = 0
+      cartCol = 12
+      if (!menuState.showCartButton) {
+        setMenuState({ ...menuState, showCartButton: true })
+      }
+    } else {
+      if (menuState.showCartButton) {
+        setMenuState({ ...menuState, showCartButton: false })
+      }
+    }
+
+    const handleShowCart = () => {
+      if (menuState.showCart) {
+        setMenuState({ ...menuState, showCart: false })
+      } else {
+        setMenuState({ ...menuState, showCart: true })
+      }
     }
 
     return (
@@ -40,12 +56,15 @@ const Menu = () => {
           <Grid item xs={menuCol}>
             <MenuNav
               catagory={catagory.name}
+              showCart={menuState.showCart}
+              showCartButton={menuState.showCartButton}
+              handleShowCart={handleShowCart}
               click={() => handleChangeCatagory(-1)}
             />
-            <MenuGrid />
+            {!menuState.showCart || width > 599 ? <MenuGrid /> : ''}
           </Grid>
           <Grid className={classes.cart} item xs={cartCol}>
-            <OrderList />
+            {menuState.showCart || width > 599 ? <OrderList /> : ''}
           </Grid>
         </Grid>
         <Footer />
