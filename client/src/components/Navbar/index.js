@@ -12,7 +12,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import InfoIcon from '@material-ui/icons/Info';
 
 const drawerWidth = 240;
 
@@ -29,7 +31,8 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     // backgroundColor: '#30362F',
-    background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
+    // background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
+    background: 'linear-gradient(45deg, #897C80 10%, #2B3C02 90%)',
     color: 'white'
   },
   menuButton: {
@@ -41,9 +44,9 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    // backgroundColor: '#30362F',
-    background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
-    color: 'white'
+    backgroundColor: '#897C80',
+    // background: 'linear-gradient(45deg, #625834 10%, #30362F 90%)',
+    color: '#ffffff'
   },
   content: {
     flexGrow: 1,
@@ -52,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   closeMenuButton: {
     marginRight: 'auto',
     marginLeft: 0,
-    color: 'white'
+    color: '#ffffff'
   },
 }));
 
@@ -71,12 +74,15 @@ function ResponsiveDrawer() {
     <div>
       <List>
         <ListItemLink href="/menu">
+          <RestaurantMenuIcon />&nbsp;&nbsp;
           <ListItemText primary="Menu" />
         </ListItemLink>
         <ListItemLink href="/contact">
+          <ContactSupportIcon />&nbsp;&nbsp;
           <ListItemText primary="Contact" />
         </ListItemLink>
         <ListItemLink href="/about">
+          <InfoIcon />&nbsp;&nbsp;
           <ListItemText primary="About" />
         </ListItemLink>
         <ListItemLink href="/checkout">
