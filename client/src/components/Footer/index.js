@@ -21,7 +21,8 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   copyright: {
-    color: 'grey'
+    color: '#512110',
+    fontSize: '95%'
   },
   main: {
     marginTop: theme.spacing(8),
@@ -37,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: '0',
     textAlign: 'center',
     width: '100%',
+  fontSize: '98%'
   },
   phantom: {
     padding: theme.spacing(3, 2),
@@ -46,6 +48,13 @@ const useStyles = makeStyles((theme) => ({
   link: {
     color: 'white',
     textDecoration: 'none',
+  },
+  grid: {
+    padding: '0px',
+  },
+  gridItem: {
+    padding: '0px',
+    margin: '0px',
   }
 }));
 
@@ -54,6 +63,8 @@ export default function StickyFooter() {
 
   return (
     <>
+
+      {/* fake */}
       <div className={classes.phantom}>
         <div className={classes.root}>
           <footer>
@@ -92,24 +103,22 @@ export default function StickyFooter() {
 
 
       {/* ACTUAL */}
-
-
       <div className={classes.root}>
         <footer className={classes.footer}>
-          <Container maxWidth="sm">
-            <Grid container spacing={1}>
-              <Grid item xs={4}>
-                <Typography align="center">Hours</Typography>
-                <p align="center">Mon - Sat: 11am-8:30pm</p>
-                <p align="center">Sun: Closed</p>
-              </Grid>
-              <Grid item xs={4}>
-                <Typography align="center">Contact Us!</Typography>
+          <Container maxWidth="sm" className={classes.grid}>
+            <Grid container spacing={0}>
+              <Grid item xs={4} className={classes.gridItem}>
                 <p align="center">
+                <Typography align="center">Hours</Typography>
+                Mon - Sat: 11am-8:30pm Sun: Closed</p>
+              </Grid>
+              <Grid item xs={4} className={classes.gridItem}>
+                <p align="center">
+                  <Typography align="center">Contact Us!</Typography>
                   <a className={classes.link} href="tel:562-924-8289">
                     (562)924-8289
                   </a>
-                </p>
+                  </p>
                 <p align="center">
                   <a
                     className={classes.link}
@@ -121,9 +130,9 @@ export default function StickyFooter() {
                   </a>
                 </p>
               </Grid>
-              <Grid item xs={4}>
-                <Typography align="center">Location</Typography>
+              <Grid item xs={4} className={classes.gridItem}>
                 <p align="center">
+                <Typography align="center">Location</Typography>
                   <a
                     className={classes.link}
                     target="_blank"

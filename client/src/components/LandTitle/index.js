@@ -77,11 +77,6 @@ const Text = () => {
 
            <Button variant="contained" onClick={event => window.location.href = '/menu'} className={classes.start}>Start your order here</Button>
 
-      {/* use later for scroll function ...add link/route in Landing()*/}
-      {/* <IconButton>
-              <ExpandMoreIcon onClick={event => window.location.href = 'pagelink'} className={classes.arrow} />
-            </IconButton> */}
-
      </h1>
 
     </div>
@@ -94,7 +89,6 @@ const Landing = () => {
  const classes = useStyles()
  return (
   <>
-   {/* add link/route here */}
    <div className={classes.root} >
 
     <CssBaseline />
