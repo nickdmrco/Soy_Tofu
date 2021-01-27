@@ -161,7 +161,7 @@ const Checkout = () => {
     } else if (activeStep === 1) {
       return (
         checkoutState.cardName !== '' &&
-        checkoutState.cardNumber.length === 16 &&
+        checkoutState.cardNumber.length === 19 &&
         checkoutState.cardExpire.length === 5 &&
         checkoutState.cardCVV.length === 3 &&
         checkoutState.zip !== ''
