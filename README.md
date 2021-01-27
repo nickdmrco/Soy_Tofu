@@ -13,6 +13,7 @@ A fully functioning restaurant page with admin user authentication and online or
 - [AXIOS](https://www.npmjs.com/package/axios)
 - [Mongoose](https://mongoosejs.com/docs/)
 - [Material UI](https://material-ui.com/)
+[emailJS](https://www.emailjs.com/)
 - [React](https://reactjs.org/)
 - [React Parallax](https://www.npmjs.com/package/react-parallax)
 - [Passport](https://www.npmjs.com/package/passport)
