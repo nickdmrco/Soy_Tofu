@@ -1,10 +1,11 @@
-// import 'fontsource-roboto'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Parallax } from 'react-parallax'
 import Typography from '@material-ui/core/Typography'
 import full from '../../img/bibimbap.jpg'
 import './style.css'
+
+// import 'fontsource-roboto'
 
 const useStyles = makeStyles((theme) => ({
  body: {
@@ -35,7 +36,7 @@ const AboutBox = () => {
  return (
   <div className={classes.body}>
    <Parallax bgImage={full} strength={400}>
-    <div style={{ height: 650 }}>
+    <div style={{ height: 800 }}>
      <div className={classes.inside + ' blue'}>
       <Typography className={classes.typography} variant="h3" align="center">
        About Us
