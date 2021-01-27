@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     opacity: '0.000001',
   },
   navColor: {
-    backgroundColor: 'grey',
+    backgroundColor: '#19647E',
   },
 }))
 

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
-    backgroundColor: 'grey',
+    backgroundColor: '#897C80',
     justifyContent: 'center',
     margin: '0px !important',
   },
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   tileBack: {
-    backgroundColor: 'grey',
+    backgroundColor: '#19647E',
   },
 }))
 

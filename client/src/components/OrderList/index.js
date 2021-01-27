@@ -8,7 +8,11 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   root: {
     color: 'white',
-    backgroundColor: 'grey',
+    backgroundColor: '#293C02',
+  },
+  btn: {
+    backgroundColor: '#897C80',
+    color: 'white',
   },
 }))
 
@@ -32,6 +36,7 @@ const OrderList = (props) => {
           <div>{renderTotal()}</div>
           <div>
             <Button
+              className={classes.btn}
               href="/checkout"
               variant="contained"
               disabled={orders.length === 0}

@@ -8,10 +8,9 @@ import numberToMoney from '../../../utils/lib/numberToMoney'
 const useStyles = makeStyles((theme) => ({
   card: {
     padding: '0.2rem',
-    backgroundColor: 'grey',
+    backgroundColor: '#897C80',
   },
   tile: {
-    width: '21rem',
     justifyContent: 'center',
     [theme.breakpoints.down('lg')]: {
       width: '16rem',
@@ -42,8 +41,7 @@ const useStyles = makeStyles((theme) => ({
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 
-  img: {
-    width: '21rem',
+  img: {    width: '21rem',
     [theme.breakpoints.down('lg')]: {
       width: '16rem',
     },

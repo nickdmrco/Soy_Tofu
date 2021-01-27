@@ -9,14 +9,18 @@ import {
     Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { shadows } from '@material-ui/system'
 
 const useStyles = makeStyles((theme) => ({
     cardBack: {
-        color: 0xFD746C,
-        backgroundColor: 'rgb(245, 242, 230)',
+        color: '#ffffff',
+        backgroundColor: '#897C80',
+        borderBottom: '',
 },
 button: {
     width: '100%',
+    color: '#ffffff',
+    backgroundColor: '#19647E',
  },
 }))
 
@@ -47,8 +51,8 @@ const OrderCard = (props) => {
         })
     }
     return (
-        <Card className={classes.cardBack}>
-            <CardActionArea onClick={() => handleSelectOrder(index)}>
+        <Card className={classes.cardBack} >
+            <CardActionArea onClick={() => handleSelectOrder(index)} >
                 <CardContent>
                     <Typography>{`Order #${index + 1}`}</Typography>
                     <Typography>{orders[index].foodName}</Typography>

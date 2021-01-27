@@ -21,9 +21,9 @@ const FoodCard = (props) => {
   }
  }
  return (
-  <Card>
-   <CardActionArea onClick={() => click()}>
-    <CardMedia image={image} title={title} />
+   <Card>
+     <CardActionArea onClick={() => click()}>
+       <CardMedia image={image} title={title}/>
     <CardContent>
      <Typography>{name}</Typography>
      {renderLowestHighestPrice()}
