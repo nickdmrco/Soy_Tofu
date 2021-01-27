@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import CartContext from '../../utils/CartContext'
 import OrderCard from './OrderCard'
 import numberToMoney from '../../utils/lib/numberToMoney'
-import { Card, CardContent, Typography } from '@material-ui/core'
+import { Button, Card, CardContent, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +28,18 @@ const OrderList = (props) => {
   return (
     <Card className={classes.root}>
       <Card className={classes.root}>
-        <CardContent>{renderTotal()}</CardContent>
+        <CardContent>
+          <div>{renderTotal()}</div>
+          <div>
+            <Button
+              href="/checkout"
+              variant="contained"
+              disabled={orders.length === 0}
+            >
+              Checkout
+            </Button>
+          </div>
+        </CardContent>
       </Card>
       <Card>
         {orders.map((order, i) => (
