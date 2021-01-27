@@ -22,7 +22,8 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   copyright: {
     color: '#512110',
-    fontSize: '95%'
+    fontSize: '98%',
+    textShadow: '1px 1px 1px #000000',
   },
   main: {
     marginTop: theme.spacing(8),

@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
  },
  colorText: {
    color: '#384F02',
-  fontSize: '4.5rem',
-    textShadow: '2px 2px 6px #000000',
+   fontSize: '4.5rem',
+   textShadow: '2px 2px 6px #000000',
  },
  container: {
   textAlign: 'center',
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
  title: {
   color: '#fff',
   fontSize: '4rem',
+   textShadow: '1px 1px 6px #000000',
  },
  arrow: {
   color: '#424242',
