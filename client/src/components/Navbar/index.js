@@ -85,9 +85,6 @@ function ResponsiveDrawer() {
           <InfoIcon />&nbsp;&nbsp;
           <ListItemText primary="About" />
         </ListItemLink>
-        <ListItemLink href="/checkout">
-          <ListItemText primary="Checkout" />
-        </ListItemLink>
       </List>
     </div>
   );
