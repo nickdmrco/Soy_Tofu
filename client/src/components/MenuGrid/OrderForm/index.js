@@ -19,7 +19,11 @@ import {
 
 const useStyles = makeStyles((theme) => ({
  card: {
-  backgroundColor: 'rgb(245, 242, 230)',
+//   backgroundColor: 'rgb(245, 242, 230)',
+ },
+ btnColor: {
+  backgroundColor: '#19647E',
+  color: '#ffffff',
  },
 }))
 
@@ -109,8 +113,8 @@ const OrderForm = () => {
       +
           </Button>
      <Button
+      className={classes.btnColor}
       size="small"
-      color="primary"
       variant="contained"
       disabled={!btnEnabled}
       onClick={() => handleAddOrder()}
@@ -139,8 +143,8 @@ const OrderForm = () => {
      +
         </Button>
     <Button
+     className={classes.btnColor}
      size="small"
-     color="primary"
      variant="contained"
      disabled={!btnEnabled}
      onClick={() => handleUpdateOrder()}
@@ -178,7 +182,7 @@ const OrderForm = () => {
        return (
         <FormControlLabel
          value={j}
-         control={<Radio style={{ width: 'auto' }} />}
+               control={<Radio style={{ width: 'auto', color: '#19647E' }} />}
          label={`${choice.name}${price}`}
         />
        )

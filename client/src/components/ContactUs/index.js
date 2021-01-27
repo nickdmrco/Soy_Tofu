@@ -1,63 +1,118 @@
-import React from "react";
-// import Card from '@material-ui/core/Card';
-// import CardContent from '@material-ui/core/CardContent';
+import React from 'react'
+import emailjs from 'emailjs-com'
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
 
-export default class MyForm extends React.Component {
- constructor(props) {
-  super(props);
-  this.submitForm = this.submitForm.bind(this);
-  this.state = {
-   status: ""
-  };
- }
+const useStyles = makeStyles((theme) => ({
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: 600,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+  paper: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+      padding: theme.spacing(3),
+    },
+    backgroundColor: '#ffffff'
+  },
+  stepper: {
+    padding: theme.spacing(3, 0, 5),
+  },
+  button: {
+    marginTop: theme.spacing(3),
+    marginLeft: theme.spacing(1),
+    backgroundColor: '#19647E',
+    color: '#ffffff'
+  },
+}));
 
- render() {
-  const { status } = this.state;
+export default function ContactUs() {
+  const classes = useStyles()
+
+  function sendEmail(e) {
+    e.preventDefault()
+
+    emailjs.sendForm('service_8n89n1a', 'emailTemplate', e.target, 'user_bjzCzrIzUc7kBzK0NvU7z')
+      .then((result) => {
+        console.log(result.text)
+      }, (error) => {
+        console.log(error.text)
+      })
+    e.target.reset()
+  }
+
   return (
-   <div
-    style={{
-     display: "flex",
-     justifyContent: "center",
-     alignItems: "center"
-    }}
-   >
-    <form
-     onSubmit={this.submitForm}
-     action="https://formspree.io/f/mgepdygv"
-     method="POST"
-     style={{
-      color: 'white'
-     }}
-    >
-     
-     <h1>Thank you for reaching out!</h1>
-     <label>Email:</label>
-     <p><input type="email" name="email" /></p>
-     <label>Message:</label>
-     <p><input type="text" name="message" /></p>
-     <p>{status === "SUCCESS" ? <p>Your email has been submitted and we will be in touch with you shortly.</p> : <button>Submit</button>}
-      {status === "ERROR" && <p>Ooops! There was an error.</p>}</p>
-    </form>
-   </div>
-  );
- }
-
- submitForm(ev) {
-  ev.preventDefault();
-  const form = ev.target;
-  const data = new FormData(form);
-  const xhr = new XMLHttpRequest();
-  xhr.open(form.method, form.action);
-  xhr.setRequestHeader("Accept", "application/json");
-  xhr.onreadystatechange = () => {
-   if (xhr.readyState !== XMLHttpRequest.DONE) return;
-   if (xhr.status === 200) {
-    form.reset();
-    this.setState({ status: "SUCCESS" });
-   } else {
-    this.setState({ status: "ERROR" });
-   }
-  };
-  xhr.send(data);
- }
+    <React.Fragment>
+      <main className={classes.layout}>
+        <Paper className={classes.paper}>
+          <Typography component="h1" variant="h4" align="center">
+            Contact Us!
+          </Typography>
+            <form onSubmit={sendEmail} container spacing={0} align="center">
+              <Grid item xs={12}>
+                <TextField
+                  margin="dense"
+                  name="name"
+                  id="name"
+                  label="Name"
+                  required
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  margin="dense"
+                  type="email"
+                  name="email"
+                  id="email"
+                  label="Email"
+                  autoComplete="email"
+                  required
+                />
+              </Grid>  
+              <TextField
+                margin="dense"
+                type="Text"
+                name="subject"
+                id="subject"
+                label="Email Subject"
+                required
+              />
+              <Grid item xs={12}>
+                <TextField
+                  margin="dense"
+                  multiline
+                  rows="8"
+                  name="message"
+                  variant="outlined"
+                  id="message"
+                  label="Your message here..."
+                  required
+                />
+              </Grid>
+              <Button
+                className={classes.button}
+                type="submit"
+                variant="contained"
+                color="inherit">
+                Submit
+              </Button>
+            </form>
+        </Paper>
+      </main>
+    </React.Fragment>
+  )
 }

@@ -37,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
  },
  colorText: {
    color: '#384F02',
-  fontSize: '4.5rem',
+   fontSize: '4.5rem',
+   textShadow: '2px 2px 6px #000000',
  },
  container: {
   textAlign: 'center',
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
  title: {
   color: '#fff',
   fontSize: '4rem',
+   textShadow: '1px 1px 6px #000000',
  },
  arrow: {
   color: '#424242',
@@ -52,7 +54,8 @@ const useStyles = makeStyles((theme) => ({
  },
  start: {
    backgroundColor: '#512110',
-   color: 'white'
+   color: 'white',
+    boxShadow: '1px 1px black'
  },
 }))
 
@@ -77,11 +80,6 @@ const Text = () => {
 
            <Button variant="contained" onClick={event => window.location.href = '/menu'} className={classes.start}>Start your order here</Button>
 
-      {/* use later for scroll function ...add link/route in Landing()*/}
-      {/* <IconButton>
-              <ExpandMoreIcon onClick={event => window.location.href = 'pagelink'} className={classes.arrow} />
-            </IconButton> */}
-
      </h1>
 
     </div>
@@ -94,7 +92,6 @@ const Landing = () => {
  const classes = useStyles()
  return (
   <>
-   {/* add link/route here */}
    <div className={classes.root} >
 
     <CssBaseline />
